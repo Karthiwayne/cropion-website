@@ -72,36 +72,96 @@
   padding: 2rem;
 }
 
-.heroOverlay {
-  padding: 2rem;
+.heroContent {
+  max-width: 700px;
 }
 
-.heroOverlay h1 {
+.tagline {
+  display: inline-block;
+  background-color: #0A7557;
+  color: #ffffff;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.heroContent h1 {
   font-size: 3.5rem;
   color: #0EA47A;
   margin-bottom: 1rem;
 }
 
-.heroOverlay p {
-  font-size: 1.2rem;
+.heroContent p {
+  font-size: 1.4rem;
   color: #0A7557;
+  margin-bottom: 1rem;
+}
+
+.elevator {
+  font-size: 1rem;
+  color: #333;
   margin-bottom: 2rem;
 }
 
-/* --------------------- Features Section --------------------- */
-.features {
-  padding: 4rem 2rem;
+.heroActions {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.ctaButton {
+  background-color: #0EA47A;
+  color: #ffffff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.ctaButton:hover {
+  background-color: #12D39D;
+}
+
+.secondaryButton {
+  background-color: transparent;
+  border: 2px solid #0EA47A;
+  color: #0EA47A;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.secondaryButton:hover {
+  background-color: #0EA47A;
+  color: #fff;
+}
+
+/* --------------------- What We’re Building --------------------- */
+.building {
+  padding: 5rem 2rem;
   background-color: #ffffff;
   text-align: center;
 }
 
-.features h2 {
+.building h2 {
   font-size: 2.5rem;
   color: #0EA47A;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
-.featureGrid {
+.buildingSubtext {
+  font-size: 1.2rem;
+  color: #333;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+}
+
+.buildGrid {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -110,7 +170,7 @@
   margin: 0 auto;
 }
 
-.featureItem {
+.buildItem {
   background-color: #f9f9f9;
   padding: 2rem;
   border-radius: 12px;
@@ -121,91 +181,154 @@
   transition: transform 0.3s ease;
 }
 
-.featureItem h3 {
+.buildItem h3 {
   color: #0A7557;
   margin-bottom: 1rem;
 }
 
-.featureItem p {
+.buildItem p {
   color: #333;
 }
 
-.featureItem:hover {
+.buildItem:hover {
   transform: translateY(-8px);
 }
 
-/* --------------------- For Farmers Section --------------------- */
-.farmers {
+/* --------------------- In Progress --------------------- */
+.progress {
   padding: 5rem 2rem;
   background-color: #e6e6e6;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   text-align: center;
 }
 
-.farmersContent {
-  max-width: 800px;
-}
-
-.farmers h2 {
+.progress h2 {
   font-size: 2.5rem;
   color: #0EA47A;
   margin-bottom: 1rem;
 }
 
-.farmers p {
+.progressSubtext {
   font-size: 1.2rem;
   color: #333;
-  margin-bottom: 2rem;
+  max-width: 700px;
+  margin: 0 auto 3rem;
 }
 
-/* --------------------- Contact Section --------------------- */
-.contact {
+.progressTimeline {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.progressItem {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  flex: 1 1 250px;
+  min-width: 250px;
+  max-width: 300px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.progressBadge {
+  display: inline-block;
+  font-size: 2rem;
+  color: #0EA47A;
+  margin-bottom: 1rem;
+}
+
+.progressItem h3 {
+  color: #0A7557;
+  margin-bottom: 0.5rem;
+}
+
+.progressItem p {
+  color: #333;
+}
+
+/* --------------------- Join Us --------------------- */
+.join {
   padding: 5rem 2rem;
   background-color: #ffffff;
+  text-align: center;
+}
+
+.join h2 {
+  font-size: 2.5rem;
+  color: #0EA47A;
+  margin-bottom: 1rem;
+}
+
+.joinSubtext {
+  font-size: 1.2rem;
+  color: #333;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+}
+
+.joinActions {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.ctaButton {
+  background-color: #0EA47A;
+  color: #ffffff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.ctaButton:hover {
+  background-color: #12D39D;
+}
+
+.secondaryButton {
+  background-color: transparent;
+  border: 2px solid #0EA47A;
+  color: #0EA47A;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.secondaryButton:hover {
+  background-color: #0EA47A;
+  color: #fff;
+}
+
+/* --------------------- Footer Section --------------------- */
+.footer {
+  width: 100%;
+  background-color: #0A7557;
+  color: #ffffff;
+  padding: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
 
-.contactContent {
-  max-width: 600px;
-  width: 100%;
-}
-
-.contact h2 {
-  font-size: 2.5rem;
-  color: #0EA47A;
-  margin-bottom: 1rem;
-}
-
-.contact p {
-  font-size: 1.2rem;
-  color: #333;
-  margin-bottom: 2rem;
-}
-
-.contactForm {
+.footerContent {
+  max-width: 800px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1rem;
 }
 
-.contactForm input,
-.contactForm textarea {
-  padding: 0.8rem 1rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-  resize: vertical;
-}
-
-.contactForm textarea {
-  min-height: 120px;
-}
-
-.contactForm button {
-  align-self: center;
+.footer p {
+  font-size: 0.9rem;
+  color: #e6e6e6;
 }
