@@ -4,92 +4,89 @@ import styles from "./page.module.css";
 export default function Home() {
   return (
     <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+      {/* --------------------- Navbar --------------------- */}
+      <header className={styles.navbar}>
+        <div className={styles.navContent}>
+
+          {/* Logo */}
+          <div className={styles.logoSection}>
+            <Image src="/cropion-logo.svg" alt="Cropion Logo" width={120} height={40} />
+          </div>
+
+          {/* Navigation Links */}
+          <nav className={styles.navMenu}>
+            <a href="#">Home</a>
+            <a href="#about">About</a>
+            <a href="#features">Features</a>
+            <a href="#farmers">For Farmers</a>
+            <a href="#contact">Contact</a>
+          </nav>
+
+          {/* CTA Button */}
+          <div className={styles.navActions}>
+            <button className={styles.ctaButton}>Get Early Access</button>
+          </div>
+
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </header>
+
+      {/* --------------------- Hero Section --------------------- */}
+      <section className={styles.hero}>
+        <div className={styles.heroOverlay}>
+          <h1>Meet Cropion Rover</h1>
+          <p>Your AI-Powered Farming Assistant</p>
+          <button className={styles.ctaButton}>See it in Action</button>
+        </div>
+      </section>
+
+      {/* --------------------- Features Section --------------------- */}
+      <section className={styles.features} id="features">
+        <h2>Why Choose Cropion Rover?</h2>
+        <div className={styles.featureGrid}>
+          
+          <div className={styles.featureItem}>
+            <h3>AI-Powered Weed Detection</h3>
+            <p>Automatically detects and eliminates weeds with precision, boosting your yield.</p>
+          </div>
+
+          <div className={styles.featureItem}>
+            <h3>Beginner Friendly</h3>
+            <p>No farming expertise required. Anyone can operate Cropion Rover with ease.</p>
+          </div>
+
+          <div className={styles.featureItem}>
+            <h3>Complete Farming Assistant</h3>
+            <p>From soil analysis to smart irrigation suggestions, your farm's 24/7 companion.</p>
+          </div>
+
+        </div>
+      </section>
+
+      {/* --------------------- For Farmers Section --------------------- */}
+      <section className={styles.farmers} id="farmers">
+        <div className={styles.farmersContent}>
+          <h2>Empowering Every Farmer</h2>
+          <p>Cropion Rover is designed for all — from small landholders to large-scale farms. Affordable, reliable, and smart — making farming simple for everyone.</p>
+          <button className={styles.ctaButton}>See How It Works</button>
+        </div>
+      </section>
+
+      {/* --------------------- Contact Section --------------------- */}
+      <section className={styles.contact} id="contact">
+        <div className={styles.contactContent}>
+          <h2>Get in Touch</h2>
+          <p>Have questions? Want to partner with us? Drop your message below and we'll get back to you.</p>
+
+          <form className={styles.contactForm}>
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit" className={styles.ctaButton}>Send Message</button>
+          </form>
+        </div>
+      </section>
+
     </div>
   );
 }
