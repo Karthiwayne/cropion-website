@@ -126,7 +126,7 @@ export default function Home() {
         <div className={styles.contactContent}>
           <h2>Get in Touch</h2>
           <p>Have questions? Want to partner with us? Drop your message below and we&apos;ll get back to you.</p>
-
+        </div>
         <div className={styles.joinActions}>
           <button className={styles.ctaButton}>Partner with Us</button>
           <button className={styles.secondaryButton}>Collaborate</button>
