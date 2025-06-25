@@ -9,93 +9,46 @@
 }
 
 .navContent {
-  max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem 2rem;
+  padding: 1rem 10vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
 }
 
-.logoSection {
-  display: flex;
-  align-items: center;
-}
-
-.navMenu {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-}
-
-.navMenu a {
-  text-decoration: none;
-  color: #0A7557;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.navMenu a:hover {
-  color: #0EA47A;
-}
-
-.navActions {
-  display: flex;
-  align-items: center;
-}
-
-.ctaButton {
-  background-color: #0EA47A;
-  color: #ffffff;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
-}
-
-.ctaButton:hover {
-  background-color: #12D39D;
+.logoSection img {
+  display: block;
+  height: auto;
+  max-width: 100%;
 }
 
 /* --------------------- Hero Section --------------------- */
 .hero {
   width: 100%;
   height: 100vh;
-  background-color: #f9f9f9;
+  background-color: #ffffff;
   display: flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 2rem;
+  padding: 0 10vw;
 }
 
 .heroContent {
-  max-width: 700px;
+  max-width: 1200px;
 }
 
-.tagline {
-  display: inline-block;
-  background-color: #0A7557;
-  color: #ffffff;
-  padding: 0.4rem 1rem;
-  border-radius: 50px;
-  font-size: 0.9rem;
-  margin-bottom: 1.5rem;
-}
-
-.heroContent h1 {
+.hero h1 {
   font-size: 3.5rem;
+  line-height: 1.2;
   color: #0EA47A;
   margin-bottom: 1rem;
 }
 
-.heroContent p {
-  font-size: 1.4rem;
-  color: #0A7557;
-  margin-bottom: 1rem;
+.hero p {
+  font-size: 1.3rem;
+  line-height: 1;
+  color: #2e2e2e;
+  margin-bottom: 1.2rem;
 }
 
 .elevator {
@@ -104,12 +57,7 @@
   margin-bottom: 2rem;
 }
 
-.heroActions {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-}
-
+/* --------------------- Shared Button Styles --------------------- */
 .ctaButton {
   background-color: #0EA47A;
   color: #ffffff;
@@ -119,6 +67,7 @@
   cursor: pointer;
   font-weight: 600;
   transition: background-color 0.3s ease;
+  margin-right: 1rem;
 }
 
 .ctaButton:hover {
@@ -141,11 +90,25 @@
   color: #fff;
 }
 
-/* --------------------- What We’re Building --------------------- */
-.building {
+/* --------------------- Sections --------------------- */
+.building, 
+.progress, 
+.join, 
+.matters, 
+.support, 
+.gallery {
   padding: 5rem 2rem;
   background-color: #ffffff;
   text-align: center;
+}
+
+.gallery {
+  background-color: #ffffff;
+}
+
+/* Alternate Background Example */
+.sectionGrey {
+  background-color: #f5f5f5;
 }
 
 .building h2 {
@@ -154,14 +117,11 @@
   margin-bottom: 1rem;
 }
 
-.buildingSubtext {
-  font-size: 1.2rem;
-  color: #333;
-  max-width: 700px;
-  margin: 0 auto 3rem;
-}
-
-.buildGrid {
+/* --------------------- Grids & Items --------------------- */
+.buildGrid, 
+.progressTimeline, 
+.mattersGrid, 
+.galleryGrid {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -170,7 +130,10 @@
   margin: 0 auto;
 }
 
-.buildItem {
+.buildItem, 
+.progressItem, 
+.matterItem, 
+.galleryItem {
   background-color: #f9f9f9;
   padding: 2rem;
   border-radius: 12px;
@@ -179,59 +142,18 @@
   max-width: 300px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
   transition: transform 0.3s ease;
+  text-align: center;
 }
 
-.buildItem h3 {
-  color: #0A7557;
-  margin-bottom: 1rem;
+.galleryItem {
+  overflow: hidden;
 }
 
-.buildItem p {
-  color: #333;
-}
-
-.buildItem:hover {
+.buildItem:hover,
+.progressItem:hover,
+.matterItem:hover,
+.galleryItem:hover {
   transform: translateY(-8px);
-}
-
-/* --------------------- In Progress --------------------- */
-.progress {
-  padding: 5rem 2rem;
-  background-color: #e6e6e6;
-  text-align: center;
-}
-
-.progress h2 {
-  font-size: 2.5rem;
-  color: #0EA47A;
-  margin-bottom: 1rem;
-}
-
-.progressSubtext {
-  font-size: 1.2rem;
-  color: #333;
-  max-width: 700px;
-  margin: 0 auto 3rem;
-}
-
-.progressTimeline {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.progressItem {
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 12px;
-  flex: 1 1 250px;
-  min-width: 250px;
-  max-width: 300px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  text-align: center;
 }
 
 .progressBadge {
@@ -241,94 +163,31 @@
   margin-bottom: 1rem;
 }
 
-.progressItem h3 {
-  color: #0A7557;
-  margin-bottom: 0.5rem;
-}
-
-.progressItem p {
-  color: #333;
-}
-
-/* --------------------- Join Us --------------------- */
-.join {
-  padding: 5rem 2rem;
-  background-color: #ffffff;
+/* --------------------- Footer --------------------- */
+.footer {
+  background-color: #0A7557;
+  color: #ffffff;
+  padding: 3rem 2rem;
   text-align: center;
 }
 
-.join h2 {
-  font-size: 2.5rem;
-  color: #0EA47A;
-  margin-bottom: 1rem;
-}
-
-.joinSubtext {
-  font-size: 1.2rem;
-  color: #333;
-  max-width: 700px;
-  margin: 0 auto 3rem;
-}
-
-.joinActions {
+.socialLinks {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
-  flex-wrap: wrap;
+  margin: 1.5rem 0;
 }
 
-.ctaButton {
-  background-color: #0EA47A;
+.socialLinks a {
   color: #ffffff;
-  border: none;
-  padding: 0.8rem 1.5rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
+  transition: color 0.3s ease;
 }
 
-.ctaButton:hover {
-  background-color: #12D39D;
+.socialLinks a:hover {
+  color: #12D39D;
 }
 
-.secondaryButton {
-  background-color: transparent;
-  border: 2px solid #0EA47A;
-  color: #0EA47A;
-  padding: 0.8rem 1.5rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.secondaryButton:hover {
-  background-color: #0EA47A;
-  color: #fff;
-}
-
-/* --------------------- Footer Section --------------------- */
-.footer {
-  width: 100%;
-  background-color: #0A7557;
-  color: #ffffff;
-  padding: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.footerContent {
-  max-width: 800px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-.footer p {
+.copy {
   font-size: 0.9rem;
   color: #e6e6e6;
 }

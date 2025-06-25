@@ -9,19 +9,10 @@ export default function Home() {
       <header className={styles.navbar}>
         <div className={styles.navContent}>
 
-          {/* Logo */}
-          <div className={styles.logoSection}>
-            <Image src="/cropion-logo.svg" alt="Cropion Logo" width={120} height={40} />
-          </div>
-
-          {/* Navigation Links */}
-          <nav className={styles.navMenu}>
-            <a href="#">Home</a>
-            <a href="#about">About</a>
-            <a href="#features">Features</a>
-            <a href="#farmers">For Farmers</a>
-            <a href="#contact">Contact</a>
-          </nav>
+        {/* Logo */}
+        <div className={styles.logoSection}>
+          <Image src="/cropion-logo.svg" alt="Cropion Logo" width={160} height={50} />
+        </div>
 
           {/* CTA Button */}
           <div className={styles.navActions}>
@@ -36,9 +27,6 @@ export default function Home() {
         
         <div className={styles.heroContent}>
 
-          {/* Optional Tagline */}
-          <span className={styles.tagline}>Prototype in Development</span>
-
           {/* Main Heading */}
           <h1>Revolutionizing Farming with AI</h1>
 
@@ -46,17 +34,20 @@ export default function Home() {
           <p>Cropion Rover — Your AI-Powered Farming Assistant</p>
 
           {/* Quick Elevator Pitch */}
-          <p className={styles.elevator}>Empowering farmers with precision, simplicity, and sustainability.</p>
+          <p className={styles.elevator}>
+            Empowering farmers with precision, simplicity, and sustainability.
+          </p>
 
           {/* CTA Buttons */}
           <div className={styles.heroActions}>
-            <button className={styles.ctaButton}>See Our Vision</button>
-            <button className={styles.secondaryButton}>Get Early Access</button>
+            <button className={styles.ctaButton}>Fund Us</button>
+            <button className={styles.secondaryButton}>Join Our Team</button>
           </div>
 
         </div>
 
       </section>
+
 
       {/* --------------------- What We’re Building --------------------- */}
       <section className={styles.building} id="about">
@@ -121,12 +112,15 @@ export default function Home() {
 
       </section>
 
-      {/* --------------------- Contact Section --------------------- */}
-      <section className={styles.contact} id="contact">
-        <div className={styles.contactContent}>
-          <h2>Get in Touch</h2>
-          <p>Have questions? Want to partner with us? Drop your message below and we&apos;ll get back to you.</p>
-        </div>
+      {/* --------------------- Join Us --------------------- */}
+      <section className={styles.join} id="join">
+        
+        <h2>Join Us</h2>
+        
+        <p className={styles.joinSubtext}>
+          We're building the future of farming, and we can’t do it alone. If you’re passionate about agri-tech, AI, or supporting sustainable solutions — let’s connect.
+        </p>
+
         <div className={styles.joinActions}>
           <button className={styles.ctaButton}>Partner with Us</button>
           <button className={styles.secondaryButton}>Collaborate</button>
@@ -134,14 +128,98 @@ export default function Home() {
 
       </section>
 
-      {/* --------------------- Footer Section --------------------- */}
-      <footer className={styles.footer}>
-        <div className={styles.footerContent}>
-          <div className={styles.logoSection}>
-            <Image src="/cropion-logo.svg" alt="Cropion Logo" width={120} height={40} />
+      {/* --------------------- Why It Matters --------------------- */}
+      <section className={styles.matters} id="why">
+        
+        <h2>Why It Matters</h2>
+        
+        <p className={styles.mattersSubtext}>
+          The future of food depends on innovation. With rising labor shortages, unpredictable climates, and the need for sustainable agriculture — Cropion Rover steps in to empower every farmer.
+        </p>
+
+        <div className={styles.mattersGrid}>
+
+          <div className={styles.matterItem}>
+            <h3>🌍 Global Food Security</h3>
+            <p>Helping farmers maximize yield, reduce waste, and meet global food demands.</p>
           </div>
-          <p>© 2024 Cropion. All rights reserved.</p>
+
+          <div className={styles.matterItem}>
+            <h3>🌾 Sustainable Farming</h3>
+            <p>Reducing chemical use, promoting efficient resource management, and preserving ecosystems.</p>
+          </div>
+
+          <div className={styles.matterItem}>
+            <h3>🤖 Tech for All</h3>
+            <p>Making AI-driven farming tools accessible and affordable to farmers everywhere.</p>
+          </div>
+
         </div>
+
+      </section>
+      {/* --------------------- Support Our Vision --------------------- */}
+      <section className={styles.support} id="support">
+        
+        <h2>Support Our Vision</h2>
+        
+        <p className={styles.supportSubtext}>
+          We’re on a mission to make smart, AI-powered farming accessible to every corner of the world. Your support fuels this vision — together, we can revolutionize agriculture.
+        </p>
+
+        <div className={styles.supportActions}>
+          <button className={styles.ctaButton}>Invest in Cropion</button>
+          <button className={styles.secondaryButton}>Get in Touch</button>
+        </div>
+
+      </section>
+      {/* --------------------- Gallery --------------------- */}
+      <section className={styles.gallery} id="gallery">
+        
+        <h2>Gallery</h2>
+        
+        <p className={styles.gallerySubtext}>
+          A glimpse into our journey — from prototypes to field tests. Stay tuned for more!
+        </p>
+
+        <div className={styles.galleryGrid}>
+          
+          <div className={styles.galleryItem}>
+            <Image src="/gallery1.jpg" alt="Prototype Testing" width={300} height={200} />
+          </div>
+
+          <div className={styles.galleryItem}>
+            <Image src="/gallery2.jpg" alt="Field Trials" width={300} height={200} />
+          </div>
+
+          <div className={styles.galleryItem}>
+            <Image src="/gallery3.jpg" alt="Team Behind the Scenes" width={300} height={200} />
+          </div>
+
+          {/* Add more images as your project develops */}
+
+        </div>
+
+      </section>
+
+      {/* --------------------- Stay in Touch --------------------- */}
+      <footer className={styles.footer} id="stayintouch">
+        
+        <div className={styles.footerContent}>
+          
+          <h2>Stay in Touch</h2>
+          
+          <p>Follow our journey, get updates, and be part of the future of farming innovation.</p>
+          
+          <div className={styles.socialLinks}>
+            <a href="#" target="_blank">LinkedIn</a>
+            <a href="#" target="_blank">Twitter</a>
+            <a href="#" target="_blank">Instagram</a>
+          </div>
+
+          <p className={styles.copy}>© 2025 Cropion. All rights reserved.</p>
+        
+        </div>
+
       </footer>
 
     </div>
