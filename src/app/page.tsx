@@ -57,7 +57,7 @@ export default function Home() {
 
           <div className={styles.featureItem}>
             <h3>Complete Farming Assistant</h3>
-            <p>From soil analysis to smart irrigation suggestions, your farm's 24/7 companion.</p>
+            <p>From soil analysis to smart irrigation suggestions, your farm&apos;s 24/7 companion.</p>
           </div>
 
         </div>
@@ -76,7 +76,7 @@ export default function Home() {
       <section className={styles.contact} id="contact">
         <div className={styles.contactContent}>
           <h2>Get in Touch</h2>
-          <p>Have questions? Want to partner with us? Drop your message below and we'll get back to you.</p>
+          <p>Have questions? Want to partner with us? Drop your message below and we&apos;ll get back to you.</p>
 
           <form className={styles.contactForm}>
             <input type="text" placeholder="Your Name" required />
