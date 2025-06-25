@@ -81,7 +81,7 @@ export default function Home() {
 
           <div className={styles.buildItem}>
             <h3>Complete Farming Assistant</h3>
-            <p>One device, multiple tasks — soil analysis, health monitoring, and more.</p>
+            <p>From soil analysis to smart irrigation suggestions, your farm&apos;s 24/7 companion.</p>
           </div>
 
         </div>
@@ -121,14 +121,11 @@ export default function Home() {
 
       </section>
 
-      {/* --------------------- Join Us --------------------- */}
-      <section className={styles.join} id="join">
-        
-        <h2>Join Us</h2>
-        
-        <p className={styles.joinSubtext}>
-          We're building the future of farming, and we can’t do it alone. If you’re passionate about agri-tech, AI, or supporting sustainable solutions — let’s connect.
-        </p>
+      {/* --------------------- Contact Section --------------------- */}
+      <section className={styles.contact} id="contact">
+        <div className={styles.contactContent}>
+          <h2>Get in Touch</h2>
+          <p>Have questions? Want to partner with us? Drop your message below and we&apos;ll get back to you.</p>
 
         <div className={styles.joinActions}>
           <button className={styles.ctaButton}>Partner with Us</button>
