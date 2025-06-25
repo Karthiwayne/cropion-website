@@ -1,0 +1,21 @@
+// src/components/Logo.tsx
+import Image from "next/image";
+import styles from "./logo.module.css";
+
+interface LogoProps {
+  invert?: boolean;
+  width?: number;
+  height?: number;
+}
+
+export default function Logo({ invert = false, width = 160, height = 50 }: LogoProps) {
+  return (
+    <Image
+      src="/cropion-logo.svg"
+      alt="Cropion Logo"
+      width={width}
+      height={height}
+      className={invert ? styles.invert : ""}
+    />
+  );
+}
