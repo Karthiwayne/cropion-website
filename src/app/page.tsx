@@ -1,30 +1,57 @@
+"use client";
+
 import Image from "next/image";
 import styles from "./page.module.css";
-import Logo from "@/components/Logo";
+import Logo from "./Logo";
+import { useState, useEffect } from "react";
 
 export default function Home() {
+
+  const testimonials = [
+    {
+      text: "With Cropion Rover, my weeding work reduced by half. Even my son operates it now!",
+      name: "Ramesh, Thanjavur",
+    },
+    {
+      text: "I never thought AI could be this simple. Cropion made my farm smarter without stress.",
+      name: "Selvi, Madurai",
+    },
+    {
+      text: "The soil insights saved me time and money. Every farmer in my village is asking about it.",
+      name: "Arun, Salem",
+    },
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+
   return (
     <div>
 
       {/* --------------------- Navbar --------------------- */}
       <header className={styles.navbar}>
         <div className={styles.navContent}>
-
-        <Logo />
-
-          <div>
-            <button className={styles.ctaButton}>Get Early Access</button>
-          </div>
-
+          <Logo />
+          <button className={styles.ctaButton}>Get Early Access</button>
         </div>
       </header>
 
-      {/* --------------------- Hero --------------------- */}
+      {/* --------------------- Hero Section --------------------- */}
       <section className={styles.hero}>
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>Revolutionizing Farming with AI</h1>
           <p className={styles.heroSubtitle}>Cropion Rover — Your AI-Powered Farming Assistant</p>
-          <p className={styles.elevator}>Empowering farmers with precision, simplicity, and sustainability.</p>
+          <p className={styles.elevator}>
+            Empowering farmers with precision, simplicity, and sustainability.
+          </p>
 
           <div>
             <button className={styles.ctaButton}>Fund Us</button>
@@ -33,105 +60,64 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --------------------- Building Section --------------------- */}
-      <section className={styles.section} id="about">
-        <h2 className={styles.sectionTitle}>What We’re Building</h2>
-        <p className={styles.subtext}>
-          Cropion Rover is an AI-powered farming assistant designed to simplify agriculture for everyone. From weed detection to smart insights — no expertise needed.
-        </p>
-
-        <div className={styles.buildGrid}>
-          <div className={styles.buildItem}>
-            <h3>AI Weed Detection</h3>
-            <p>Detects and eliminates weeds in real-time, increasing yield and reducing labor.</p>
-          </div>
-
-          <div className={styles.buildItem}>
-            <h3>Beginner Friendly</h3>
-            <p>Zero learning curve — designed for farmers of all experience levels.</p>
-          </div>
-
-          <div className={styles.buildItem}>
-            <h3>Complete Farming Assistant</h3>
-            <p>From soil analysis to smart irrigation suggestions, your farm's 24/7 companion.</p>
-          </div>
+      {/* --------------------- What We're Building --------------------- */}
+      <section className={styles.leftSection} id="about">
+        <div className={styles.leftContent}>
+          <h2 className={styles.sectionTitle}>What We’re Building</h2>
+          <p className={styles.subtext}>
+            Cropion Rover simplifies farming with the power of AI — no expertise needed. From detecting weeds in real-time to providing smart insights, it’s designed for every farmer, beginner or pro. 
+            Our mission is to bring cutting-edge technology to the fields, making precision farming accessible, sustainable, and stress-free. 🚀
+          </p>
         </div>
       </section>
 
-      {/* --------------------- Progress Section --------------------- */}
+      {/* --------------------- In Progress --------------------- */}
       <section className={styles.section} id="progress">
         <h2 className={styles.sectionTitle}>In Progress</h2>
         <p className={styles.subtext}>
-          We are actively developing Cropion Rover with a focus on AI precision, simplicity, and real-world testing.
+          We’re building Cropion Rover with AI precision, simplicity, and real-world testing.
         </p>
 
-        <div className={styles.progressTimeline}>
-          <div className={styles.progressItem}>
-            <span className={styles.progressBadge}>✔</span>
-            <h3>Prototype Design Completed</h3>
-            <p>Initial hardware and software prototypes are finalized for testing.</p>
+        <div className={styles.timeline}>
+          <div className={`${styles.timelineStep} ${styles.completed}`}>
+            <div className={styles.timelineDot}>✔</div>
+            <h3>Prototype Completed</h3>
           </div>
 
-          <div className={styles.progressItem}>
-            <span className={styles.progressBadge}>⏳</span>
-            <h3>Field Trials Underway</h3>
-            <p>Ongoing real-world trials to validate performance and reliability.</p>
+          <div className={`${styles.timelineStep} ${styles.ongoing}`}>
+            <div className={styles.timelineDot}>⏳</div>
+            <h3>Field Trials</h3>
           </div>
 
-          <div className={styles.progressItem}>
-            <span className={styles.progressBadge}>🚀</span>
-            <h3>Preparing for Launch</h3>
-            <p>Working towards scaling production and early adopter partnerships.</p>
+          <div className={styles.timelineStep}>
+            <div className={styles.timelineDot}>🚀</div>
+            <h3>Launch Prep</h3>
           </div>
         </div>
       </section>
 
-      {/* --------------------- Join Us --------------------- */}
-      <section className={styles.section} id="join">
-        <h2 className={styles.sectionTitle}>Join Us</h2>
+      {/* --------------------- Testimonials --------------------- */}
+      <section className={styles.section} id="testimonials">
+        <h2 className={styles.sectionTitle}>What Farmers Say</h2>
         <p className={styles.subtext}>
-          We're building the future of farming, and we can’t do it alone. If you’re passionate about agri-tech, AI, or supporting sustainable solutions — let’s connect.
+          Real stories from the fields — how Cropion Rover is changing lives.
         </p>
 
-        <div>
-          <button className={styles.secondaryButton}>Collaborate</button>
+        <div className={`${styles.testimonialCard} ${styles.fadeIn}`}>
+          <p className={styles.testimonialText}>
+            “{testimonials[currentIndex].text}”
+          </p>
+          <h4 className={styles.testimonialName}>— {testimonials[currentIndex].name}</h4>
         </div>
-      </section>
 
-      {/* --------------------- Why It Matters --------------------- */}
-      <section className={styles.section} id="why">
-        <h2 className={styles.sectionTitle}>Why It Matters</h2>
-        <p className={styles.subtext}>
-          The future of food depends on innovation. With rising labor shortages, unpredictable climates, and the need for sustainable agriculture — Cropion Rover steps in to empower every farmer.
-        </p>
-
-        <div className={styles.mattersGrid}>
-          <div className={styles.matterItem}>
-            <h3>🌍 Global Food Security</h3>
-            <p>Helping farmers maximize yield, reduce waste, and meet global food demands.</p>
-          </div>
-
-          <div className={styles.matterItem}>
-            <h3>🌾 Sustainable Farming</h3>
-            <p>Reducing chemical use, promoting efficient resource management, and preserving ecosystems.</p>
-          </div>
-
-          <div className={styles.matterItem}>
-            <h3>🤖 Tech for All</h3>
-            <p>Making AI-driven farming tools accessible and affordable to farmers everywhere.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* --------------------- Support --------------------- */}
-      <section className={styles.section} id="support">
-        <h2 className={styles.sectionTitle}>Support Our Vision</h2>
-        <p className={styles.subtext}>
-          We’re on a mission to make smart, AI-powered farming accessible to every corner of the world. Your support fuels this vision — together, we can revolutionize agriculture.
-        </p>
-
-        <div>
-          <button className={styles.secondaryButton}>Get in Touch</button>
+        <div className={styles.dots}>
+          {testimonials.map((_, idx) => (
+            <span
+              key={idx}
+              className={`${styles.dot} ${currentIndex === idx ? styles.active : ""}`}
+              onClick={() => setCurrentIndex(idx)}
+            ></span>
+          ))}
         </div>
       </section>
 
@@ -139,39 +125,61 @@ export default function Home() {
       <section className={styles.section} id="gallery">
         <h2 className={styles.sectionTitle}>Gallery</h2>
         <p className={styles.subtext}>
-          A glimpse into our journey — from prototypes to field tests. Stay tuned for more!
+          A glimpse into our journey — prototypes, field tests & more.
         </p>
 
         <div className={styles.galleryGrid}>
           <div className={styles.galleryItem}>
             <Image src="/gallery1.jpg" alt="Prototype Testing" width={300} height={200} />
           </div>
-
           <div className={styles.galleryItem}>
             <Image src="/gallery2.jpg" alt="Field Trials" width={300} height={200} />
           </div>
-
           <div className={styles.galleryItem}>
-            <Image src="/gallery3.jpg" alt="Team Behind the Scenes" width={300} height={200} />
+            <Image src="/gallery3.jpg" alt="Behind the Scenes" width={300} height={200} />
+          </div>
+        </div>
+      </section>
+
+      {/* --------------------- Why It Matters --------------------- */}
+      <section className={styles.section} id="why">
+        <h2 className={styles.sectionTitle}>Why It Matters</h2>
+        <p className={styles.subtext}>
+          The future of food depends on innovation. Cropion Rover helps farmers overcome challenges with AI-driven tools.
+        </p>
+
+        <div className={styles.whyGrid}>
+          <div className={styles.whyItem}>
+            <div className={styles.whyIcon}>🌍</div>
+            <div>
+              <h3>Global Food Security</h3>
+              <p>Helping farmers maximize yield, reduce waste, and meet global demand.</p>
+            </div>
+          </div>
+
+          <div className={styles.whyItem}>
+            <div className={styles.whyIcon}>🌾</div>
+            <div>
+              <h3>Sustainable Farming</h3>
+              <p>Efficient resource use, lower chemicals, protect ecosystems.</p>
+            </div>
+          </div>
+
+          <div className={styles.whyItem}>
+            <div className={styles.whyIcon}>🤖</div>
+            <div>
+              <h3>Tech for All</h3>
+              <p>Accessible, simple AI tools for every farmer, everywhere.</p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* --------------------- Footer --------------------- */}
       <footer className={styles.footer} id="stayintouch">
-        <Logo invert width={140} height={40} />
-        <h2 className={styles.sectionTitle}>Stay in Touch</h2>
-        <p className={styles.subtext}>
-          Follow our journey, get updates, and be part of the future of farming innovation.
-        </p>
-
-        <div className={styles.socialLinks}>
-          <a href="#" target="_blank">LinkedIn</a>
-          <a href="#" target="_blank">Twitter</a>
-          <a href="#" target="_blank">Instagram</a>
+        <div className={styles.footerContent}>
+          <Logo invert width={120} height={35} />
         </div>
-
-        <p className={styles.copy}>© 2025 Cropion. All rights reserved.</p>
       </footer>
 
     </div>

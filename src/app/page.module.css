@@ -1,7 +1,7 @@
 /* --------------------- Navbar --------------------- */
 .navbar {
   width: 100%;
-  background-color: #fff;
+  background: #fff;
   border-bottom: 1px solid #e6e6e6;
   position: sticky;
   top: 0;
@@ -14,27 +14,23 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
 }
 
-.logoSection img {
-  display: block;
-  height: auto;
-  max-width: 100%;
-}
-
-/* --------------------- Hero --------------------- */
+/* --------------------- Hero Section --------------------- */
 .hero {
   width: 100%;
   height: 100vh;
   background: #fff;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   padding: 0 10vw;
 }
 
 .heroContent {
-  max-width: 1200px;
+  max-width: 700px;
+  z-index: 2;
+  text-align: left;
 }
 
 .heroTitle {
@@ -42,19 +38,21 @@
   line-height: 1.2;
   color: #0EA47A;
   margin-bottom: 1rem;
+  text-align: left;
 }
 
 .heroSubtitle {
   font-size: 1.3rem;
-  line-height: 1;
   color: #2e2e2e;
   margin-bottom: 1.2rem;
+  text-align: left;
 }
 
 .elevator {
   font-size: 1rem;
   color: #333;
   margin-bottom: 2rem;
+  text-align: left;
 }
 
 /* --------------------- Buttons --------------------- */
@@ -92,8 +90,8 @@
 
 /* --------------------- Sections Shared --------------------- */
 .section {
-  padding: 5rem 2rem;
-  background-color: #fff;
+  padding: 4rem 10vw;
+  background: #fff;
   text-align: center;
 }
 
@@ -105,83 +103,272 @@
 
 .subtext {
   max-width: 700px;
-  margin: 0 auto 3rem;
+  margin: 0 auto 2rem;
   color: #333;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
 }
 
-/* --------------------- Grids --------------------- */
-.buildGrid,
-.progressTimeline,
-.mattersGrid,
-.galleryGrid {
+/* --------------------- Left Aligned Section --------------------- */
+.leftSection {
+  padding: 4rem 10vw;
+  background: #fff;
+}
+
+.leftContent {
+  max-width: 700px;
+}
+
+.leftContent ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 2rem;
+}
+
+.leftContent li {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+/* --------------------- Progress Horizontal --------------------- */
+.progressHorizontal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.progressStep {
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 12px;
+  flex: 1 1 200px;
+  max-width: 250px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.progressStep:hover {
+  transform: translateY(-6px);
+}
+
+.progressBadge {
+  font-size: 2rem;
+  color: #0EA47A;
+  margin-bottom: 0.5rem;
+}
+
+/* --------------------- Why It Matters --------------------- */
+.whyGrid {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
+  margin-top: 2rem;
 }
 
-.buildItem,
-.progressItem,
-.matterItem,
-.galleryItem {
+.whyItem {
+  display: flex;
+  align-items: flex-start;
   background: #f9f9f9;
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 12px;
-  flex: 1 1 250px;
-  min-width: 250px;
-  max-width: 300px;
+  flex: 1 1 280px;
+  max-width: 320px;
+  text-align: left;
+  gap: 1rem;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  text-align: center;
   transition: transform 0.3s ease;
 }
 
-.buildItem:hover,
-.progressItem:hover,
-.matterItem:hover,
-.galleryItem:hover {
-  transform: translateY(-8px);
+.whyItem:hover {
+  transform: translateY(-6px);
 }
 
-.progressBadge {
-  display: inline-block;
+.whyIcon {
   font-size: 2rem;
   color: #0EA47A;
-  margin-bottom: 1rem;
+}
+
+/* --------------------- Gallery --------------------- */
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.galleryItem {
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .galleryItem img {
   width: 100%;
-  border-radius: 12px;
+  height: auto;
+  transition: transform 0.5s ease;
+  display: block;
+}
+
+.galleryItem:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.galleryItem:hover img {
+  transform: scale(1.05);
 }
 
 /* --------------------- Footer --------------------- */
 .footer {
   background: #0A7557;
   color: #fff;
-  padding: 3rem 2rem;
+  padding: 2rem 10vw;
   text-align: center;
 }
 
-.socialLinks {
+.footerContent {
   display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin: 1.5rem 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
-.socialLinks a {
-  color: #fff;
-  transition: color 0.3s ease;
-}
-
-.socialLinks a:hover {
-  color: #12D39D;
-}
-
-.copy {
+.footerNote {
   font-size: 0.9rem;
   color: #e6e6e6;
+}
+
+.timeline {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+  padding: 1rem 0;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #e6e6e6;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.timeline::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 4px;
+  background: #0EA47A;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 65%; /* Adjust this to control green progress length */
+}
+
+.timelineStep {
+  position: relative;
+  text-align: center;
+  flex: 1;
+  z-index: 3;
+}
+
+.timelineDot {
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  border: 3px solid #0EA47A;
+  color: #0EA47A;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+.completed .timelineDot {
+  background-color: #0EA47A;
+  color: #fff;
+}
+
+.ongoing .timelineDot {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(14, 164, 122, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(14, 164, 122, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(14, 164, 122, 0); }
+}
+
+.testimonialCard {
+  max-width: 600px;
+  margin: 2rem auto 0;
+  padding: 2rem;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  text-align: center;
+  position: relative;
+  transition: opacity 0.5s ease;
+}
+
+.fadeIn {
+  animation: fade 0.5s ease;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.testimonialText {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.testimonialName {
+  font-weight: 600;
+  color: #0EA47A;
+}
+
+.dots {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.dot:hover {
+  background: #888;
+}
+
+.active {
+  background: #0EA47A;
 }

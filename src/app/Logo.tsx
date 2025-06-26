@@ -1,6 +1,6 @@
 // src/components/Logo.tsx
 import Image from "next/image";
-import styles from "./logo.module.css";
+import styles from "./Logo.module.css";
 
 interface LogoProps {
   invert?: boolean;
