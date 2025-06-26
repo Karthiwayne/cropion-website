@@ -6,6 +6,9 @@ import Logo from "./Logo";
 import { useState, useEffect } from "react";
 
 export default function Home() {
+  const [showTeamPopup, setShowTeamPopup] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
+  const [volunteering, setVolunteering] = useState(false);
 
   const testimonials = [
     {
@@ -32,15 +35,13 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
-
   return (
     <div>
-
       {/* --------------------- Navbar --------------------- */}
       <header className={styles.navbar}>
         <div className={styles.navContent}>
           <Logo />
-          <button className={styles.ctaButton}>Get Early Access</button>
+          <button className={styles.ctaButton} onClick={() => setShowPopup(true)}>Support Us</button>
         </div>
       </header>
 
@@ -54,8 +55,8 @@ export default function Home() {
           </p>
 
           <div>
-            <button className={styles.ctaButton}>Fund Us</button>
-            <button className={styles.secondaryButton}>Join Our Team</button>
+            <button className={styles.ctaButton} onClick={() => setShowPopup(true)}>Support Us</button>
+            <button className={styles.secondaryButton} onClick={() => setShowTeamPopup(true)}>Join Our Team</button>
           </div>
         </div>
       </section>
@@ -181,6 +182,100 @@ export default function Home() {
           <Logo invert width={120} height={35} />
         </div>
       </footer>
+
+      {/* --------------------- Popup Form --------------------- */}
+      {showPopup && (
+        <div className={styles.popupOverlay}>
+          <div className={styles.popupLarge}>
+            <button className={styles.closeBtn} onClick={() => setShowPopup(false)}>×</button>
+            <h2>Support Cropion</h2>
+            <form className={styles.popupForm} onSubmit={(e) => e.preventDefault()}>
+              <input type="text" placeholder="Full Name" required />
+              <input type="email" placeholder="Email Address" required />
+              <input type="tel" placeholder="Phone Number (Optional)" />
+
+              <label>How would you like to support?</label>
+              <div className={styles.checkboxGroup}>
+                <label><input type="checkbox" /> Donate</label>
+                <label><input type="checkbox" onChange={(e) => setVolunteering(e.target.checked)} /> Volunteer</label>
+                <label><input type="checkbox" /> Collaborate as Partner</label>
+                <label><input type="checkbox" /> Offer Technical Expertise</label>
+                <label><input type="checkbox" /> Other</label>
+              </div>
+
+              {volunteering && (
+                <>
+                  <label>Availability (Only if volunteering):</label>
+                  <input type="text" placeholder="Days Available" />
+                  <input type="number" placeholder="Hours per Week" />
+                </>
+              )}
+
+              <textarea placeholder="Tell us why you're interested in supporting us (Optional)" rows={3}></textarea>
+
+              <label>Preferred Method of Contact:</label>
+              <div className={styles.checkboxGroup}>
+                <label><input type="checkbox" /> Email</label>
+                <label><input type="checkbox" /> Phone</label>
+                <label><input type="checkbox" /> WhatsApp</label>
+              </div>
+
+              <input type="text" placeholder="City, State, Country" />
+              <label>Attach Resume or Portfolio (Optional):</label>
+              <label className={styles.fileLabel}><input type="file" hidden />📁 Choose File</label>
+
+
+              <label>How did you hear about us?</label>
+              <select>
+                <option value="">Select</option>
+                <option value="social">Social Media</option>
+                <option value="word">Word of Mouth</option>
+                <option value="news">News / Blog</option>
+                <option value="other">Other</option>
+              </select>
+
+              <div className={styles.popupActions}>
+                <button type="submit" className={styles.ctaButton}>Submit</button>
+                <button type="button" className={styles.secondaryButton} onClick={() => setShowPopup(false)}>Close</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+      {showTeamPopup && (
+        <div className={styles.popupOverlay}>
+          <div className={styles.popupLarge}>
+           <button className={styles.closeBtn} onClick={() => setShowTeamPopup(false)}>×</button>
+            <h2>Join Our Team</h2>
+            <form className={styles.popupForm} onSubmit={(e) => e.preventDefault()}>
+              <input type="text" placeholder="Full Name" required />
+              <input type="email" placeholder="Email Address" required />
+              <input type="tel" placeholder="Phone Number (Optional)" />
+              
+              <label>Your Area of Interest:</label>
+              <select required>
+                <option value="">Select Role</option>
+                <option value="engineering">Engineering / AI</option>
+                <option value="design">Design & UI/UX</option>
+                <option value="marketing">Marketing & Outreach</option>
+                <option value="field">Field Operations</option>
+                <option value="other">Other</option>
+              </select>
+
+              <textarea placeholder="Why do you want to join Cropion?" rows={3} required></textarea>
+
+              <label>Attach Resume or Portfolio (Optional):</label>
+              <label className={styles.fileLabel}><input type="file" hidden />📁 Choose File</label>
+
+
+              <div className={styles.popupActions}>
+                <button type="submit" className={styles.ctaButton}>Submit</button>
+                <button type="button" className={styles.secondaryButton} onClick={() => setShowTeamPopup(false)}>Close</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
 
     </div>
   );
