@@ -36,6 +36,15 @@
 .leftContent {
   width: 100%;
   max-width: 800px;
+.mainScroll {
+  scroll-snap-type: y mandatory;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+.section, .leftSection {
+  scroll-snap-align: start;
+  min-height: 100vh;
 }
 
 .mainScroll {
@@ -56,6 +65,11 @@
 .navbar.scrolled {
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
+
+.navbar.scrolled {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
 
 .navContent {
   margin: 0 auto;
@@ -91,6 +105,19 @@
   user-select: none;
   background: transparent;
 }
+
+.heroBackground3D {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+  background: transparent;
+}
+
 
 .heroContent {
   z-index: 2;
@@ -442,6 +469,19 @@
   gap: 1.2rem;
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+.popupLarge::-webkit-scrollbar {
+  display: none;
+}
+
+.popupOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000; /* Changed from 999 to 2000 to overlay navbar */
 }
 
 .popupLarge::-webkit-scrollbar {
