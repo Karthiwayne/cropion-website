@@ -10,7 +10,6 @@ import { submitContactForm } from "./strapi";
 export default function Home() {
   const [showTeamPopup, setShowTeamPopup] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
-  const [volunteering, setVolunteering] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Form state
@@ -63,7 +62,7 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
-  const galleryRef = useRef(null);
+const galleryRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -99,7 +98,7 @@ export default function Home() {
 
       <section className={`${styles.section} ${styles.fadeSection}`} ref={(el) => fadeRefs.current[1] = el}>
         <div className={styles.sectionContent}>
-          <h2 className={styles.sectionTitle}>What We're Building</h2>
+          <h2 className={styles.sectionTitle}>What We&apos;re Building</h2>
           <p className={styles.subtext}>
             Cropion Rover simplifies farming with AI — no expertise needed. Detect weeds in real-time, 
             get smart insights, accessible to all farmers. 🚀
@@ -111,7 +110,7 @@ export default function Home() {
         <div className={styles.sectionContent}>
           <h2 className={styles.sectionTitle}>In Progress</h2>
           <p className={styles.subtext}>
-            We're building Cropion Rover with AI precision, simplicity, and real-world testing.
+            We&apos;re building Cropion Rover with AI precision, simplicity, and real-world testing.
           </p>
 
           <div className={styles.timelineWrapper}>
@@ -153,7 +152,7 @@ export default function Home() {
           <h2 className={styles.sectionTitle}>What Farmers Say</h2>
           <p className={styles.subtext}>Real stories from the fields — how Cropion Rover is changing lives.</p>
           <div className={`${styles.testimonialCard} ${styles.fadeIn}`}>
-            <p className={styles.testimonialText}>"{testimonials[currentIndex].text}"</p>
+            <p className={styles.testimonialText}>&quot;{testimonials[currentIndex].text}&quot;</p>
             <h4 className={styles.testimonialName}>— {testimonials[currentIndex].name}</h4>
           </div>
           <div className={styles.dots}>
@@ -275,6 +274,7 @@ export default function Home() {
                   setMessage("");
                   setSource("");
                 } catch (err) {
+                  console.error(err)
                   setError("Something went wrong! Please try again.");
                 } finally {
                   setIsSubmitting(false);
