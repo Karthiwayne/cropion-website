@@ -6,6 +6,44 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Logo from "./Logo";
 import { submitContactForm } from "./strapi";
+import CropField from "./CropField";
+import Rover from "./Rover";
+import { Canvas } from "@react-three/fiber";
+import { Environment } from "@react-three/drei";
+import CameraController from "./CameraController";
+
+
+function AgriField3D({ cameraMode }) {
+  const [windActive, setWindActive] = useState(false);
+  return (
+    <div className={"" + styles.heroBackground3D}>
+      <Canvas camera={{ position: [-16, 6, 24], fov: 45 }} shadows style={{top: "40px", position: "relative"}}>
+        <CameraController cameraMode={cameraMode} />
+        <ambientLight intensity={0.7} />
+        <directionalLight
+          position={[6, 10, 5]}
+          castShadow
+          intensity={1.4}
+          shadow-mapSize-width={1024}
+          shadow-mapSize-height={1024}
+        />
+        {/* Field ground */}
+        {/* Align field to match crop grid rows/cols and offset! */}
+        {/* Stretch the field plane a bit further beyond crop extents for a perfect fit */}
+        <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]} position={[0.75 - 3 * 1.5 + 21, 0, 4.2 + 1.5 + 7]}>
+          <planeGeometry args={[120 * 1.5, 26 * 1.5]} />
+          <meshStandardMaterial color="#7bc96f" />
+        </mesh>
+        {/* Render crops with randomized local wind sway */}
+        <CropField />
+        {/* Rover */}
+        <Rover />
+        {/* Sky Environment */}
+        <Environment preset="sunset" background={false} />
+      </Canvas>
+    </div>
+  );
+}
 
 export default function Home() {
   const [showTeamPopup, setShowTeamPopup] = useState(false);
@@ -21,6 +59,37 @@ export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
+
+  // Navbar scroll effect
+  const [navbarScrolled, setNavbarScrolled] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      setNavbarScrolled(window.scrollY > 2);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Section scroll -> camera mode state
+  const [cameraMode, setCameraMode] = useState("angled");
+
+  // Intersection ref for the after-hero section
+  const aboutRef = useRef(null);
+  useEffect(() => {
+    const handler = (entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          setCameraMode("front");
+        } else {
+          setCameraMode("angled");
+        }
+      });
+    };
+    const observer = new window.IntersectionObserver(handler, { threshold: 0.36 });
+    const elem = aboutRef.current;
+    if (elem) observer.observe(elem);
+    return () => { if(elem) observer.unobserve(elem); };
+  }, []);
 
   const testimonials = [
     {
@@ -73,10 +142,46 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
+  // Section refs for scroll-jack
+  const sectionRefs = [useRef(null), useRef(null), useRef(null), useRef(null), useRef(null), useRef(null)];
+  // 0: hero, 1: about, 2: progress, 3: testimonials, 4: gallery, 5: why
+  useEffect(() => {
+    let scrolling = false;
+    const handleWheel = (e) => {
+      if (scrolling) return;
+      scrolling = true;
+      const current = document.activeElement;
+      let idx = sectionRefs.findIndex(ref => ref.current && ref.current.contains(current));
+      if (idx === -1) {
+        // Fallback: use first visible
+        let found = false;
+        sectionRefs.forEach((ref, i) => {
+          const rect = ref.current?.getBoundingClientRect();
+          if (rect && !found && rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+            idx = i;
+            found = true;
+          }
+        });
+        if (!found) idx = 0;
+      }
+      if (e.deltaY > 0 && idx < sectionRefs.length - 1) {
+        sectionRefs[idx + 1].current.scrollIntoView({behavior: 'smooth'});
+      }
+      if (e.deltaY < 0 && idx > 0) {
+        sectionRefs[idx - 1].current.scrollIntoView({behavior: 'smooth'});
+      }
+      setTimeout(() => { scrolling = false; }, 850);
+      e.preventDefault();
+    };
+    document.querySelector('.'+styles.mainScroll)?.addEventListener('wheel', handleWheel, { passive: false });
+    return () => {
+      document.querySelector('.'+styles.mainScroll)?.removeEventListener('wheel', handleWheel);
+    };
+  }, []);
 
   return (
-    <div>
-      <header className={styles.navbar}>
+    <div className={styles.mainScroll}>
+      <header className={styles.navbar + (navbarScrolled ? " " + styles.scrolled : "") }>
         <div className={styles.navContent}>
           <Logo />
           <button className={styles.ctaButton} onClick={() => setShowPopup(true)}>
@@ -86,6 +191,7 @@ export default function Home() {
       </header>
 
       <section className={`${styles.hero} ${styles.fadeSection}`} ref={(el) => { fadeRefs.current[0] = el; }}>
+
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>Revolutionizing Farming with AI</h1>
           <p className={styles.heroSubtitle}>Cropion Robot — Your AI-Powered Farming Assistant</p>
@@ -94,6 +200,9 @@ export default function Home() {
             <button className={styles.ctaButton} onClick={() => setShowPopup(true)}>Contact Us</button>
           </div>
         </div>
+        {/* Agri Field 3D Animation (background with overlay) */}
+        <AgriField3D cameraMode={cameraMode} />
+        <div className={styles.heroBackgroundOverlay} />
       </section>
 
       <section className={`${styles.section} ${styles.fadeSection}`} ref={(el) => { fadeRefs.current[1] = el; }}>

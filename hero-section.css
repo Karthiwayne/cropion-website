@@ -1,0 +1,9 @@
+.hero-field {
+  width: 100vw;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(#98e3ff 0%, #e8ffd4 100%);
+}
+

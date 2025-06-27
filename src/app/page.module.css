@@ -34,6 +34,15 @@
 .leftContent {
   width: 100%;
   max-width: 800px;
+.mainScroll {
+  scroll-snap-type: y mandatory;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+.section, .leftSection {
+  scroll-snap-align: start;
+  min-height: 100vh;
 }
 
 /* --------------------- Navbar --------------------- */
@@ -44,7 +53,13 @@
   background: #fff;
   border-bottom: 1px solid #e6e6e6;
   z-index: 10;
+  transition: box-shadow 0.2s ease;
 }
+
+.navbar.scrolled {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
 
 .navContent {
   margin: 0 auto;
@@ -56,24 +71,53 @@
 
 /* --------------------- Hero Section --------------------- */
 .hero {
-  justify-content: center;
-  align-items: flex-start;
-  padding: 8rem 10vw 4rem;
-  min-height: 100vh;
+  position: relative;
+  margin-top: -74px;
+  width: 100%;
+  height: 100vh;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 10vw;
+  overflow: hidden;
 }
 
+.heroBackground3D {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+  background: transparent;
+}
+
+
 .heroContent {
-  max-width: 700px;
   z-index: 2;
   text-align: left;
-  padding: 20vh 0;
+  position: relative;
+  margin-left: 0;
+  margin-right: auto;
+  left: 0;
+  right: unset;
+  top: 0;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15%;
+  
 }
 
 .heroTitle {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   line-height: 1.2;
   color: #0EA47A;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
+  text-align: left;
 }
 
 .heroSubtitle {
@@ -423,6 +467,19 @@
   flex-direction: column;
   gap: 1.2rem;
   animation: popupFade 0.3s ease;
+}
+.popupLarge::-webkit-scrollbar {
+  display: none;
+}
+
+.popupOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000; /* Changed from 999 to 2000 to overlay navbar */
 }
 
 @keyframes popupFade {
