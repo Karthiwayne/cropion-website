@@ -102,7 +102,7 @@ export default function Home() {
           <p className={styles.subtext}>
             Cropion Rover simplifies farming with AI — no expertise needed. Detect weeds in real-time, get smart insights, accessible to all farmers. 🚀  
             <br /><br />
-            &emsp;👩🏽‍🌾 First time touching soil? You’re still good — we gotchu.  
+            &emsp;👩🏽‍🌾 First time touching soil? You are still good — we gotchu.  
             <br />
             &emsp;🤖 The Rover does the thinking, you just vibe and grow.  
             <br />
@@ -110,7 +110,7 @@ export default function Home() {
             <br />
             &emsp;💡 Smart tips, real-time alerts, zero stress.  
             <br />
-            &emsp;🌍 Farming ain’t gotta be complicated — we’re making it easy for literally everyone.  
+            &emsp;🌍 Farming is not gotta be complicated — we are making it easy for literally everyone.  
           </p>
         </div>
       </section>
