@@ -259,7 +259,6 @@ export default function Home() {
 
           <div className={styles.galleryWrapper}>
             <div className={styles.galleryTrack} ref={galleryRef}>
-
               <div className={styles.galleryItem}>
                 <Image src="/gallery-1.jpg" alt="Prototype Testing" width={400} height={300} />
               </div>
