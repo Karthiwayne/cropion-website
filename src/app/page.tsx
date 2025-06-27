@@ -10,7 +10,6 @@ import { submitContactForm } from "./strapi";
 export default function Home() {
   const [showTeamPopup, setShowTeamPopup] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
-  const [volunteering, setVolunteering] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Form state
@@ -43,9 +42,9 @@ export default function Home() {
       setCurrentIndex((prev) => (prev + 1) % testimonials.length);
     }, 4000);
     return () => clearInterval(interval);
-  }, []);
+  }, [testimonials.length]);
 
-  const fadeRefs = useRef([]);
+  const fadeRefs = useRef<(HTMLElement | null)[]>([]);
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -63,7 +62,7 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
-  const galleryRef = useRef(null);
+  const galleryRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -86,7 +85,7 @@ export default function Home() {
         </div>
       </header>
 
-      <section className={`${styles.hero} ${styles.fadeSection}`} ref={(el) => fadeRefs.current[0] = el}>
+      <section className={`${styles.hero} ${styles.fadeSection}`} ref={(el) => { fadeRefs.current[0] = el; }}>
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>Revolutionizing Farming with AI</h1>
           <p className={styles.heroSubtitle}>Cropion Robot — Your AI-Powered Farming Assistant</p>
@@ -97,21 +96,30 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={`${styles.section} ${styles.fadeSection}`} ref={(el) => fadeRefs.current[1] = el}>
+      <section className={`${styles.section} ${styles.fadeSection}`} ref={(el) => { fadeRefs.current[1] = el; }}>
         <div className={styles.sectionContent}>
-          <h2 className={styles.sectionTitle}>What We're Building</h2>
+          <h2 className={styles.sectionTitle}>What We are Building</h2>
           <p className={styles.subtext}>
-            Cropion Rover simplifies farming with AI — no expertise needed. Detect weeds in real-time, 
-            get smart insights, accessible to all farmers. 🚀
+            Cropion Rover simplifies farming with AI — no expertise needed. Detect weeds in real-time, get smart insights, accessible to all farmers. 🚀  
+            <br /><br />
+            &emsp;👩🏽‍🌾 First time touching soil? You’re still good — we gotchu.  
+            <br />
+            &emsp;🤖 The Rover does the thinking, you just vibe and grow.  
+            <br />
+            &emsp;🌿 Spot weeds, pests, and problems before they mess you up.  
+            <br />
+            &emsp;💡 Smart tips, real-time alerts, zero stress.  
+            <br />
+            &emsp;🌍 Farming ain’t gotta be complicated — we’re making it easy for literally everyone.  
           </p>
         </div>
       </section>
 
-      <section className={`${styles.section} ${styles.fadeSection}`} ref={(el) => fadeRefs.current[2] = el}>
+      <section className={`${styles.section} ${styles.fadeSection}`} ref={(el) => { fadeRefs.current[2] = el; }}>
         <div className={styles.sectionContent}>
           <h2 className={styles.sectionTitle}>In Progress</h2>
           <p className={styles.subtext}>
-            We're building Cropion Rover with AI precision, simplicity, and real-world testing.
+            We are building Cropion Rover with AI precision, simplicity, and real-world testing.
           </p>
 
           <div className={styles.timelineWrapper}>
@@ -148,12 +156,12 @@ export default function Home() {
       </section>
 
 
-      <section className={`${styles.section} ${styles.fadeSection}`} ref={(el) => fadeRefs.current[3] = el}>
+      <section className={`${styles.section} ${styles.fadeSection}`} ref={(el) => { fadeRefs.current[3] = el; }}>
         <div className={styles.sectionContent}>
           <h2 className={styles.sectionTitle}>What Farmers Say</h2>
           <p className={styles.subtext}>Real stories from the fields — how Cropion Rover is changing lives.</p>
           <div className={`${styles.testimonialCard} ${styles.fadeIn}`}>
-            <p className={styles.testimonialText}>"{testimonials[currentIndex].text}"</p>
+            <p className={styles.testimonialText}>&quot{testimonials[currentIndex].text}&quot</p>
             <h4 className={styles.testimonialName}>— {testimonials[currentIndex].name}</h4>
           </div>
           <div className={styles.dots}>
@@ -168,13 +176,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={`${styles.section} ${styles.fadeSection}`} ref={(el) => fadeRefs.current[4] = el}>
+      <section className={`${styles.section} ${styles.fadeSection}`} ref={(el) => { fadeRefs.current[4] = el; }}>
         <div className={styles.sectionContent}>
           <h2 className={styles.sectionTitle}>Gallery</h2>
           <p className={styles.subtext}>A glimpse into our journey — prototypes, field tests & more.</p>
 
           <div className={styles.galleryWrapper}>
-            <div className={styles.galleryTrack}>
+            <div className={styles.galleryTrack} ref={galleryRef}>
               
               <div className={styles.galleryItem}>
                 <Image src="/gallery-1.jpg" alt="Prototype Testing" width={400} height={300} />
@@ -210,7 +218,7 @@ export default function Home() {
 </section>
 
 
-      <section className={`${styles.section} ${styles.fadeSection}`} ref={(el) => fadeRefs.current[5] = el}>
+      <section className={`${styles.section} ${styles.fadeSection}`} ref={(el) => { fadeRefs.current[5] = el; }}>
         <div className={styles.sectionContent}>
           <h2 className={styles.sectionTitle}>Why It Matters</h2>
           <p className={styles.subtext}>
@@ -275,6 +283,7 @@ export default function Home() {
                   setMessage("");
                   setSource("");
                 } catch (err) {
+                  console.error(err);
                   setError("Something went wrong! Please try again.");
                 } finally {
                   setIsSubmitting(false);
@@ -303,7 +312,7 @@ export default function Home() {
               />
 
               <textarea
-                placeholder="Have something you'd like to share? We're all ears — or feel free to skip it!"
+                placeholder="Have something you like to share? We re all ears — or feel free to skip it!"
                 rows={3}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
@@ -368,7 +377,7 @@ export default function Home() {
                 <label className={styles.formLabel}>Attach Resume:</label>
                 <label className={styles.fileLabel}>
                   <input type="file" hidden />
-                  📎 Upload File
+                  Upload File
                 </label>
               </div>
 
