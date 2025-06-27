@@ -5,12 +5,23 @@ import styles from "./page.module.css";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Logo from "./Logo";
+import { submitContactForm } from "./strapi";
 
 export default function Home() {
   const [showTeamPopup, setShowTeamPopup] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [volunteering, setVolunteering] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Form state
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [message, setMessage] = useState("");
+  const [source, setSource] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
 
   const testimonials = [
     {
@@ -80,13 +91,8 @@ export default function Home() {
           <h1 className={styles.heroTitle}>Revolutionizing Farming with AI</h1>
           <p className={styles.heroSubtitle}>Cropion Robot — Your AI-Powered Farming Assistant</p>
           <p className={styles.elevator}>Empowering farmers with precision, simplicity, and sustainability.</p>
-          <div className={styles.heroButtons}>
-            <button className={styles.ctaButton} onClick={() => setShowPopup(true)}>
-              Support Us
-            </button>
-            <button className={styles.secondaryButton} onClick={() => setShowTeamPopup(true)}>
-              Join Our Team
-            </button>
+          <div>
+            <button className={styles.ctaButton} onClick={() => setShowPopup(true)}>Contact Us</button>
           </div>
         </div>
       </section>
@@ -243,107 +249,83 @@ export default function Home() {
       </footer>
 
       {showPopup && (
-        <div className={styles.popupOverlay}>
-          <div className={`${styles.popupLarge} ${styles.fadeIn}`}>
+        <div className={styles.popupOverlay} onClick={() => setShowPopup(false)}>
+          <div className={styles.popupLarge} onClick={e => e.stopPropagation()}>
             <button className={styles.closeBtn} onClick={() => setShowPopup(false)}>×</button>
-            <h2>Support Cropion</h2>
-            <form className={styles.popupForm} onSubmit={(e) => e.preventDefault()}>
-              <div className={styles.inputGroup}>
-                <input type="text" placeholder="Full Name" required />
-              </div>
-              <div className={styles.inputGroup}>
-                <input type="email" placeholder="Email Address" required />
-              </div>
-              <div className={styles.inputGroup}>
-                <input type="tel" placeholder="Phone Number (Optional)" />
-              </div>
-              
-              <div className={styles.formSection}>
-                <label className={styles.formLabel}>How would you like to support?</label>
-                <div className={styles.checkboxGroup}>
-                  <label className={styles.checkboxLabel}>
-                    <input type="checkbox" /> 
-                    <span>Donate</span>
-                  </label>
-                  <label className={styles.checkboxLabel}>
-                    <input type="checkbox" onChange={(e) => setVolunteering(e.target.checked)} /> 
-                    <span>Volunteer</span>
-                  </label>
-                  <label className={styles.checkboxLabel}>
-                    <input type="checkbox" /> 
-                    <span>Collaborate as Partner</span>
-                  </label>
-                  <label className={styles.checkboxLabel}>
-                    <input type="checkbox" /> 
-                    <span>Offer Technical Expertise</span>
-                  </label>
-                  <label className={styles.checkboxLabel}>
-                    <input type="checkbox" /> 
-                    <span>Other</span>
-                  </label>
-                </div>
-              </div>
+            <h2>Your interest means the world to us</h2>
+            <form
+              className={styles.popupForm}
+              onSubmit={async (e) => {
+                e.preventDefault();
+                setIsSubmitting(true);
+                setError("");
+                setSuccess(false);
+                try {
+                  await submitContactForm({
+                    fullName: fullName.trim(),
+                    email: email.trim(),
+                    phoneNumber: phoneNumber.trim(),
+                    message,
+                    source
+                  });
+                  setSuccess(true);
+                  setFullName("");
+                  setEmail("");
+                  setPhoneNumber("");
+                  setMessage("");
+                  setSource("");
+                } catch (err) {
+                  setError("Something went wrong! Please try again.");
+                } finally {
+                  setIsSubmitting(false);
+                }
+              }}
+            >
+              <input
+                type="text"
+                placeholder="Full Name"
+                required
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
+              />
+              <input
+                type="email"
+                placeholder="Email Address"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <input
+                type="tel"
+                placeholder="Phone Number (Optional)"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+              />
 
-              {volunteering && (
-                <div className={styles.formSection}>
-                  <label className={styles.formLabel}>Availability:</label>
-                  <div className={styles.inputRow}>
-                    <input type="text" placeholder="Days Available" />
-                    <input type="number" placeholder="Hours per Week" />
-                  </div>
-                </div>
-              )}
+              <textarea
+                placeholder="Have something you'd like to share? We're all ears — or feel free to skip it!"
+                rows={3}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+              ></textarea>
 
-              <div className={styles.inputGroup}>
-                <textarea placeholder="Tell us why you're interested" rows={3}></textarea>
-              </div>
+              {/* <label>How did you hear about us?</label>
+              <select value={source} onChange={e => setSource(e.target.value)}>
+                <option value="">Select</option>
+                <option value="social">Social Media</option>
+                <option value="word">Word of Mouth</option>
+                <option value="news">News / Blog</option>
+                <option value="other">Other</option>
+              </select> */}
 
-              <div className={styles.formSection}>
-                <label className={styles.formLabel}>Preferred Contact:</label>
-                <div className={styles.checkboxGroup}>
-                  <label className={styles.checkboxLabel}>
-                    <input type="checkbox" /> 
-                    <span>Email</span>
-                  </label>
-                  <label className={styles.checkboxLabel}>
-                    <input type="checkbox" /> 
-                    <span>Phone</span>
-                  </label>
-                  <label className={styles.checkboxLabel}>
-                    <input type="checkbox" /> 
-                    <span>WhatsApp</span>
-                  </label>
-                </div>
-              </div>
-
-              <div className={styles.inputGroup}>
-                <input type="text" placeholder="City, State, Country" />
-              </div>
-
-              <div className={styles.formSection}>
-                <label className={styles.formLabel}>Attach Resume:</label>
-                <label className={styles.fileLabel}>
-                  <input type="file" hidden />
-                  📎 Upload File
-                </label>
-              </div>
-
-              <div className={styles.inputGroup}>
-                <label className={styles.formLabel}>How did you hear about us?</label>
-                <select>
-                  <option value="">Select</option>
-                  <option>Social Media</option>
-                  <option>Word of Mouth</option>
-                  <option>News/Blog</option>
-                  <option>Other</option>
-                </select>
-              </div>
+              {error && <div style={{color: "#c00", marginTop: 4}}>{error}</div>}
+              {success && <div style={{color: "#0ab772", marginTop: 4}}>Thank you – we received your message!</div>}
 
               <div className={styles.popupActions}>
-                <button className={styles.ctaButton}>Submit</button>
-                <button className={styles.secondaryButton} onClick={() => setShowPopup(false)}>
-                  Close
+                <button type="submit" className={styles.ctaButton} disabled={isSubmitting}>
+                  {isSubmitting ? "Submitting..." : "Submit"}
                 </button>
+                <button type="button" className={styles.secondaryButton} onClick={() => setShowPopup(false)}>Close</button>
               </div>
             </form>
           </div>
