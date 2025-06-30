@@ -20,31 +20,31 @@ function Sunflower({ position, windOffset = 0, windActive }) {
   return (
     <group ref={group} position={position}>
       {/* Stalk */}
-      <mesh castShadow receiveShadow position={[0, 0.45, 0]}>
-        <cylinderGeometry args={[0.06, 0.08, 0.9, 14]} />
+      <mesh castShadow receiveShadow position={[0, 0.3375, 0]}>
+        <cylinderGeometry args={[0.06, 0.08, 0.675, 14]} />
         <meshStandardMaterial color="#5fbb2d" roughness={0.35}/>
       </mesh>
       {/* Two large leaves */}
-      <mesh castShadow receiveShadow position={[-0.19, 0.58, 0]} rotation={[0, -0.67, -1.14]}>
-        <coneGeometry args={[0.13, 0.31, 14]} />
+      <mesh castShadow receiveShadow position={[-0.19, 0.435, 0]} rotation={[0, -0.67, -1.14]}>
+        <coneGeometry args={[0.13, 0.2325, 14]} />
         <meshStandardMaterial color="#8bdd64" roughness={0.22}/>
       </mesh>
-      <mesh castShadow receiveShadow position={[0.17, 0.7, 0]} rotation={[0, 0.71, 1.10]}>
-        <coneGeometry args={[0.11, 0.27, 10]} />
+      <mesh castShadow receiveShadow position={[0.17, 0.525, 0]} rotation={[0, 0.71, 1.10]}>
+        <coneGeometry args={[0.11, 0.2025, 10]} />
         <meshStandardMaterial color="#7fd85a" roughness={0.24}/>
       </mesh>
       {/* Petals - 16 instanced small cones distributed in a circle */}
       {[...Array(16)].map((_, i) => {
         const angle = (i / 16) * Math.PI * 2;
-        const r = 0.23; // radial distance from center
+        const r = 0.1725; // 75% of 0.23
         return (
           <mesh
             key={"petal-"+i}
             castShadow
             receiveShadow
-            position={[Math.cos(angle) * r, 1.04, Math.sin(angle) * r]}
+            position={[Math.cos(angle) * r, 0.78, Math.sin(angle) * r]}
             rotation={[-Math.PI / 6, angle, 0]}
-            scale={[0.48, 1.6, 0.21]} // squash in X and Z for sharp oval
+            scale={[0.48, 1.2, 0.21]}
           >
             {/* A sharp oval shape using sphere, squashed and scaled */}
             <sphereGeometry args={[0.08, 18, 12]} />
@@ -53,7 +53,7 @@ function Sunflower({ position, windOffset = 0, windActive }) {
         );
       })}
       {/* Flower head dark disc */}
-      <mesh castShadow receiveShadow position={[0, 1.07, 0]}>
+      <mesh castShadow receiveShadow position={[0, 0.8025, 0]}>
         <sphereGeometry args={[0.09, 16, 10]} />
         <meshStandardMaterial color="#725d41" roughness={0.37}/>
       </mesh>
