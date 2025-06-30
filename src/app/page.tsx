@@ -12,13 +12,13 @@ export default function Home() {
   const [sectionIndex, setSectionIndex] = useState(0);
 
   // track camera mode for slide index
-  useEffect(() => {
-    if (sectionIndex === 1) {
-      setCameraMode("followRover");
-    } else {
-      setCameraMode("angled");
-    }
-  }, [sectionIndex]);
+  // useEffect(() => {
+  //   if (sectionIndex === 1) {
+  //     setCameraMode("followRover");
+  //   } else {
+  //     setCameraMode("angled");
+  //   }
+  // }, [sectionIndex]);
 
   // update sectionIndex based on user scroll
   useEffect(() => {
@@ -77,21 +77,21 @@ export default function Home() {
 
   // Intersection ref for the after-hero section
   const aboutRef = useRef(null);
-  useEffect(() => {
-    const handler = (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setCameraMode("front");
-        } else {
-          setCameraMode("angled");
-        }
-      });
-    };
-    const observer = new window.IntersectionObserver(handler, { threshold: 0.36 });
-    const elem = aboutRef.current;
-    if (elem) observer.observe(elem);
-    return () => { if (elem) observer.unobserve(elem); };
-  }, []);
+  // useEffect(() => {
+  //   const handler = (entries) => {
+  //     entries.forEach(entry => {
+  //       if (entry.isIntersecting) {
+  //         setCameraMode("front");
+  //       } else {
+  //         setCameraMode("angled");
+  //       }
+  //     });
+  //   };
+  //   const observer = new window.IntersectionObserver(handler, { threshold: 0.36 });
+  //   const elem = aboutRef.current;
+  //   if (elem) observer.observe(elem);
+  //   return () => { if (elem) observer.unobserve(elem); };
+  // }, []);
 
   const testimonials = [
     {
