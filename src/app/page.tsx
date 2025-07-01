@@ -23,7 +23,7 @@ export default function Home() {
   // update sectionIndex based on user scroll
   useEffect(() => {
     let ticking = false;
-    const handleWheel = (e) => {
+    const handleWheel = (e: WheelEvent) => {
       if (ticking) return;
       ticking = true;
       if (e.deltaY > 0 && sectionIndex < 5) {
@@ -48,7 +48,6 @@ export default function Home() {
       }
     });
   }, [sectionIndex]);
-  const [showTeamPopup, setShowTeamPopup] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -73,10 +72,10 @@ export default function Home() {
   }, []);
 
   // Section scroll -> camera mode state
-  const [cameraMode, setCameraMode] = useState("angled");
+  const [cameraMode] = useState("angled");
 
   // Intersection ref for the after-hero section
-  const aboutRef = useRef(null);
+  // const aboutRef = useRef(null);
   // useEffect(() => {
   //   const handler = (entries) => {
   //     entries.forEach(entry => {
@@ -145,7 +144,7 @@ export default function Home() {
   }, []);
 
   // Section refs for scroll-jack
-  const sectionRefs = [useRef(null), useRef(null), useRef(null), useRef(null), useRef(null), useRef(null)];
+  // const sectionRefs = [useRef(null), useRef(null), useRef(null), useRef(null), useRef(null), useRef(null)];
   // 0: hero, 1: about, 2: progress, 3: testimonials, 4: gallery, 5: why
 
   return (
@@ -259,7 +258,6 @@ export default function Home() {
 
           <div className={styles.galleryWrapper}>
             <div className={styles.galleryTrack} ref={galleryRef}>
-
               <div className={styles.galleryItem}>
                 <Image src="/gallery-1.jpg" alt="Prototype Testing" width={400} height={300} />
               </div>

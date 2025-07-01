@@ -21,7 +21,11 @@ function Ground() {
   );
 }
 
-export default function AgriField3D({ cameraMode }) {
+interface AgriField3DProps {
+  cameraMode: string;
+}
+
+export default function AgriField3D({ cameraMode }: AgriField3DProps) {
   const roverPoseRef = useRef({ position: [0, 0, 0], fwd: [1, 0, 0] });
 
   return (

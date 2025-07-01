@@ -1,13 +1,17 @@
 import { useFrame } from "@react-three/fiber";
 import { Vector3 } from "three";
 
-import { useRef } from "react";
-const CameraController = ({ cameraMode, roverPoseRef }) => {
+interface CameraControllerProps {
+  cameraMode: string;
+  roverPoseRef: React.MutableRefObject<{ position: number[]; fwd: number[] }>;
+}
+
+const CameraController = ({ cameraMode, roverPoseRef }: CameraControllerProps) => {
   const targetPosition = new Vector3();
   const targetLookAt = new Vector3();
 
   useFrame((state) => {
-    let roverPose = roverPoseRef?.current;
+    const roverPose = roverPoseRef?.current;
     if (cameraMode === "followRover" && roverPose) {
       // place camera behind and slightly above rover
       const roverVec = new Vector3(...roverPose.position);

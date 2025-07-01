@@ -2,12 +2,18 @@ import { useRef } from 'react';
 import { useFrame } from "@react-three/fiber";
 import Sprout from "./Sprout";
 
-function getWindActive(row, col, time) {
+function getWindActive(row: number, col: number, time: number): boolean {
   const base = Math.sin(row * 2.712 + col * 1.82 + Math.floor(time/6.9));
   return base > 0.7;
 }
 
-function CropField({ rows = 16, cols = 60, highlightRows = [] }) {
+interface CropFieldProps {
+  rows?: number;
+  cols?: number;
+  highlightRows?: number[];
+}
+
+function CropField({ rows = 16, cols = 60, highlightRows = [] }: CropFieldProps) {
   // useRef for stable state, avoid laggy re-render
   const nowRef = useRef(0);
   useFrame(({clock}) => {
@@ -17,7 +23,7 @@ function CropField({ rows = 16, cols = 60, highlightRows = [] }) {
   const flowers = [];
   for (let row = 0; row < rows; row++) {
     for (let col = 0; col < cols; col++) {
-      const pos = [col * 1.5 - (cols / 2) + 0.75 - 3 * 1.5 + 5, 0, row * 1.5 - (rows / 2) + 4.2 + 1.5];
+      const pos: [number, number, number] = [col * 1.5 - (cols / 2) + 0.75 - 3 * 1.5 + 5, 0, row * 1.5 - (rows / 2) + 4.2 + 1.5];
       const cropWind = getWindActive(row, col, now);
       // If in highlightRows, highlight color
       const highlight = highlightRows.includes(row);
