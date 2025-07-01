@@ -48,6 +48,7 @@ export default function Home() {
       }
     });
   }, [sectionIndex]);
+  const [showTeamPopup, setShowTeamPopup] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -72,10 +73,10 @@ export default function Home() {
   }, []);
 
   // Section scroll -> camera mode state
-  const [cameraMode] = useState("angled");
+  const [cameraMode, setCameraMode] = useState("angled");
 
   // Intersection ref for the after-hero section
-  // const aboutRef = useRef(null);
+  const aboutRef = useRef(null);
   // useEffect(() => {
   //   const handler = (entries) => {
   //     entries.forEach(entry => {
@@ -144,7 +145,7 @@ export default function Home() {
   }, []);
 
   // Section refs for scroll-jack
-  // const sectionRefs = [useRef(null), useRef(null), useRef(null), useRef(null), useRef(null), useRef(null)];
+  const sectionRefs = [useRef(null), useRef(null), useRef(null), useRef(null), useRef(null), useRef(null)];
   // 0: hero, 1: about, 2: progress, 3: testimonials, 4: gallery, 5: why
 
   return (

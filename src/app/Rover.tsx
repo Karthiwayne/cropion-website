@@ -4,7 +4,7 @@ import { useFrame } from "@react-three/fiber";
 import { useMemo } from "react";
 import * as THREE from "three";
 
-function Rover({ poseRef }) {
+function Rover({ pathLength = 7, poseRef }) {
   const ref = useRef();
   const leftRollerRef = useRef();
   const rightRollerRef = useRef();
@@ -22,10 +22,10 @@ function Rover({ poseRef }) {
     }
   })
   // Traverse only the 4 center rows in a single pass (for implements/tires logic)
-  // const allRows = 16; // From CropField
+  const allRows = 16; // From CropField
   const rowSpacing = 2;
   const groupRows = [6, 7, 8, 9]; // zero-based indices for 4 central rows
-  // const groupRowSpan = groupRows.length;
+  const groupRowSpan = groupRows.length;
   // Rover Z will be centered between rows 7 and 8
   const zTrackCenter = (-2.8 + rowSpacing * 7 + -2.8 + rowSpacing * 8) / 3.27;
   // For future extension: path logic can generalize to multiple groups
@@ -58,12 +58,12 @@ function Rover({ poseRef }) {
       z = baseZ;
       rotY = isEvenRow ? 0 : Math.PI;
     } else if (tStage < timePerRow + timeAtStop + timePerTurn) {
-      // const t = (tStage - timePerRow - timeAtStop) / timePerTurn;
+      const t = (tStage - timePerRow - timeAtStop) / timePerTurn;
       x = isEvenRow ? colEnd : colStart;
       z = baseZ;
       rotY = isEvenRow ? 0 + Math.PI * t : Math.PI - Math.PI * t;
     } else if (tStage < timePerRow + timeAtStop + timePerTurn + transitionTime) {
-      // const t = (tStage - (timePerRow + timeAtStop + timePerTurn)) / transitionTime;
+      const t = (tStage - (timePerRow + timeAtStop + timePerTurn)) / transitionTime;
       x = isEvenRow ? colEnd : colStart;
       z = baseZ;
       rotY = isEvenRow ? Math.PI : 0;
