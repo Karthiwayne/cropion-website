@@ -1,9 +1,17 @@
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
+import * as THREE from "three";
 
 // A sprout: just a short stem and tiny leaves
-export default function Sprout({ position, windOffset = 0, windActive, highlight = false }) {
-  const group = useRef();
+interface SproutProps {
+  position: [number, number, number];
+  windOffset?: number;
+  windActive: boolean;
+  highlight?: boolean;
+}
+
+export default function Sprout({ position, windOffset = 0, windActive, highlight = false }: SproutProps) {
+  const group = useRef<THREE.Group>(null);
   useFrame(({ clock }) => {
     if (group.current) {
       const sway = windActive ? Math.sin(clock.getElapsedTime() * 2.3 + windOffset) * 0.13 : 0;

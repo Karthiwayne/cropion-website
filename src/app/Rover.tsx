@@ -4,10 +4,14 @@ import { useFrame } from "@react-three/fiber";
 import { useMemo } from "react";
 import * as THREE from "three";
 
-function Rover({ poseRef }) {
-  const ref = useRef();
-  const leftRollerRef = useRef();
-  const rightRollerRef = useRef();
+interface RoverProps {
+  poseRef?: React.MutableRefObject<{ position: number[]; fwd: number[]; activeRows?: number[] }>;
+}
+
+function Rover({ poseRef }: RoverProps) {
+  const ref = useRef<THREE.Group>(null);
+  const leftRollerRef = useRef<THREE.Group>(null);
+  const rightRollerRef = useRef<THREE.Group>(null);
 
   // Animate rollers when moving using useFrame
   useFrame((state, delta) => {
@@ -58,7 +62,7 @@ function Rover({ poseRef }) {
       z = baseZ;
       rotY = isEvenRow ? 0 : Math.PI;
     } else if (tStage < timePerRow + timeAtStop + timePerTurn) {
-      // const t = (tStage - timePerRow - timeAtStop) / timePerTurn;
+      const t = (tStage - timePerRow - timeAtStop) / timePerTurn;
       x = isEvenRow ? colEnd : colStart;
       z = baseZ;
       rotY = isEvenRow ? 0 + Math.PI * t : Math.PI - Math.PI * t;

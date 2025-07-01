@@ -23,7 +23,7 @@ export default function Home() {
   // update sectionIndex based on user scroll
   useEffect(() => {
     let ticking = false;
-    const handleWheel = (e) => {
+    const handleWheel = (e: WheelEvent) => {
       if (ticking) return;
       ticking = true;
       if (e.deltaY > 0 && sectionIndex < 5) {

@@ -1,7 +1,12 @@
 import { useFrame } from "@react-three/fiber";
 import { Vector3 } from "three";
 
-const CameraController = ({ cameraMode, roverPoseRef }) => {
+interface CameraControllerProps {
+  cameraMode: string;
+  roverPoseRef: React.MutableRefObject<{ position: number[]; fwd: number[] }>;
+}
+
+const CameraController = ({ cameraMode, roverPoseRef }: CameraControllerProps) => {
   const targetPosition = new Vector3();
   const targetLookAt = new Vector3();
 

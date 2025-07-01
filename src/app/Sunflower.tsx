@@ -1,8 +1,15 @@
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
+import * as THREE from "three";
 
-function Sunflower({ position, windOffset = 0, windActive }) {
-  const group = useRef();
+interface SunflowerProps {
+  position: [number, number, number];
+  windOffset?: number;
+  windActive: boolean;
+}
+
+function Sunflower({ position, windOffset = 0, windActive }: SunflowerProps) {
+  const group = useRef<THREE.Group>(null);
   useFrame(({ clock }) => {
     if (group.current) {
       // Sway the sunflower back and forth: X or Z axis (not Y)
@@ -11,10 +18,13 @@ function Sunflower({ position, windOffset = 0, windActive }) {
       group.current.rotation.y = 0; // Do not rotate around Y axis
       // Bending effect: smoothly bend in X based on sway's direction (smoother)
       // Keep previous scale.x in a ref for lerp
-      if (!group.current._lastScaleX) group.current._lastScaleX = 1;
+      const currentGroup = group.current;
+      if (currentGroup && !('lastScaleX' in currentGroup.userData)) {
+        currentGroup.userData.lastScaleX = 1;
+      }
       const desiredScaleX = 1 - sway * 0.14; // bend more on one side only
-      group.current._lastScaleX += (desiredScaleX - group.current._lastScaleX) * 0.15; // smooth blend
-      group.current.scale.x = group.current._lastScaleX;
+      currentGroup.userData.lastScaleX += (desiredScaleX - currentGroup.userData.lastScaleX) * 0.15; // smooth blend
+      currentGroup.scale.x = currentGroup.userData.lastScaleX;
     }
   });
   return (
