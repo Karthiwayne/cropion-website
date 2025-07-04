@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { Plus, Minus } from 'lucide-react'
+import Link from 'next/link'
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(0)
@@ -65,10 +66,13 @@ const FAQ = () => {
             ))}
             
             <div className="pt-6">
-              <button className="flex items-center space-x-2 text-[#0ea47a] hover:text-[#0a7557] font-medium transition-colors">
+              <Link 
+                href="/faq"
+                className="flex items-center space-x-2 text-[#0ea47a] hover:text-[#0a7557] font-medium transition-colors"
+              >
                 <span>See more FAQs</span>
                 <Plus className="w-4 h-4" />
-              </button>
+              </Link>
             </div>
           </div>
         </div>
