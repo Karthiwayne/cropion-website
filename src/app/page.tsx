@@ -5,6 +5,7 @@ import Portfolio from '../components/Portfolio'
 import Testimonial from '../components/Testimonial'
 import FAQ from '../components/FAQ'
 import Footer from '../components/Footer'
+import ScrollPopupManager from '../components/ScrollPopupManager'
 
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
       <Testimonial />
       <FAQ />
       <Footer />
+      <ScrollPopupManager />
     </div>
   )
 }
