@@ -42,7 +42,7 @@ export default function Steps() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
           {/* Horizontal connecting line for desktop */}
           <div className="hidden lg:block absolute top-16 left-1/4 right-1/4 h-px bg-[#12d39d] z-0"></div>
-          {STEPS.map(({ icon: Icon, title, description, color }, idx) => (
+          {STEPS.map(({ icon: Icon, title, description, color }) => (
             <div key={title} className="text-center relative z-10">
               <div className={`w-16 h-16 ${color} rounded-full flex items-center justify-center mx-auto mb-6`}>
                 <Icon className="w-8 h-8" />

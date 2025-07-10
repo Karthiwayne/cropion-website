@@ -1,7 +1,6 @@
 'use client'
 
-import { useState } from 'react'
-import Image from 'next/image'
+
 import Link from 'next/link'
 import { 
   ArrowLeft, 
@@ -10,23 +9,13 @@ import {
   Shield, 
   Zap, 
   Users, 
-  BarChart3, 
-  Lock,
-  Smartphone,
-  CreditCard,
-  UserCheck,
-  FileText,
-  AlertTriangle,
-  Eye,
+  BarChart3,
   Play,
   Star,
   Download,
-  Globe,
   Layers,
   Tractor,
   Leaf,
-  Camera,
-  MapPin,
   TrendingUp,
   Bot
 } from 'lucide-react'
@@ -34,7 +23,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 const ProductPage = () => {
-  const [activeTab, setActiveTab] = useState('overview')
+  // const [activeTab, setActiveTab] = useState('overview')
 
   const features = [
     {
@@ -284,7 +273,7 @@ const ProductPage = () => {
                     Everything you need to scale your farm
                   </h3>
                   <p className="text-gray-600 leading-relaxed mb-8">
-                    From small family farms to large agricultural enterprises, Cropion's AI platform 
+                    From small family farms to large agricultural enterprises, Cropion&apos;s AI platform 
                     grows with your operation. Get access to advanced analytics, custom integrations, 
                     and dedicated agricultural support specialists.
                   </p>
@@ -439,7 +428,7 @@ const ProductPage = () => {
                   </div>
                   
                   <blockquote className="text-gray-700 mb-6 leading-relaxed">
-                    "{testimonial.quote}"
+                  &quot;{testimonial.quote}&quot;
                   </blockquote>
                   
                   <div>

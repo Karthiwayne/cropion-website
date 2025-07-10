@@ -90,7 +90,7 @@ export default function AboutUsPage() {
             <li><span className="font-medium text-[#0ea47a]">Farmer-first:</span> We innovate for and with our users</li>
             <li><span className="font-medium text-[#0ea47a]">Transparency:</span> Open, reliable solutions every step</li>
             <li><span className="font-medium text-[#0ea47a]">Sustainability:</span> Leave land and communities stronger</li>
-            <li><span className="font-medium text-[#0ea47a]">Autonomy:</span> Redefining what's possible with self-operating machines</li>
+            <li><span className="font-medium text-[#0ea47a]">Autonomy:</span> Redefining what&apos;s possible with self-operating machines</li>
           </ul>
         </section>
 

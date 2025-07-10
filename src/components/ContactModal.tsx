@@ -54,7 +54,7 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
           <div>
             <h4 className="text-lg font-semibold text-gray-900 mb-4">Get in Touch</h4>
             <p className="text-gray-600 mb-6">
-              Ready to revolutionize your farming operations? Let's discuss how Cropion can help you achieve better yields and efficiency.
+              Ready to revolutionize your farming operations? Let &apos; s  discuss how Cropion can help you achieve better yields and efficiency.
             </p>
             
             <div className="space-y-4">
