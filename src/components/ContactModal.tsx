@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { X, Mail, Phone, MapPin, Send } from 'lucide-react'
+import { submitContactForm } from '../utils/strapi/contactForm'
 
 interface ContactModalProps {
   isOpen: boolean
@@ -16,11 +17,31 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
     message: ''
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Contact form submitted:', formData)
-    // Handle form submission here
-    onClose()
+    setLoading(true)
+    setError('')
+    setSuccess(false)
+    try {
+      // Map local formData to ContactFormData type
+      await submitContactForm({
+        fullName: formData.name,
+        email: formData.email,
+        phoneNumber: formData.company, // If you have phoneNumber separately use it
+        message: formData.message,
+      });
+      setSuccess(true)
+      setFormData({ name: '', email: '', company: '', message: '' })
+    } catch (err: any) {
+      setError(err?.message || 'Unable to send message')
+    }
+    setLoading(false)
+    // Optionally close on success:
+    // onClose()
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -156,13 +177,24 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
                 />
               </div>
               
-              <button
-                type="submit"
-                className="w-full bg-gradient-to-r from-[#0ea47a] to-[#12d39d] hover:from-[#0a7557] hover:to-[#0ea47a] text-white px-6 py-3 rounded-lg transition-all duration-200 font-medium flex items-center justify-center space-x-2"
-              >
-                <Send className="w-4 h-4" />
-                <span>Send Message</span>
-              </button>
+            {success && (
+              <div className="mb-2 p-2 text-[#0ea47a] font-semibold bg-[#e6f3ed] border border-[#0ea47a]/20 rounded text-center">
+                Thank you, your message was sent!
+              </div>
+            )}
+            {error && (
+              <div className="mb-2 p-2 text-red-700 font-medium bg-red-50 border border-red-200 rounded text-center">
+                {error}
+              </div>
+            )}
+            <button
+              type="submit"
+              className="w-full bg-gradient-to-r from-[#0ea47a] to-[#12d39d] hover:from-[#0a7557] hover:to-[#0ea47a] text-white px-6 py-3 rounded-lg transition-all duration-200 font-medium flex items-center justify-center space-x-2 disabled:opacity-60 disabled:cursor-wait"
+              disabled={loading}
+            >
+              <Send className="w-4 h-4" />
+              <span>{loading ? 'Sending...' : 'Send Message'}</span>
+            </button>
             </form>
           </div>
         </div>

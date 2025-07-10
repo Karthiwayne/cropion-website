@@ -2,13 +2,28 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import { emailSub } from '../utils/strapi/emaiSub'
 
 const Hero = () => {
   const [email, setEmail] = useState('')
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const [loading, setLoading] = useState(false)
+  const [success, setSuccess] = useState(false)
+  const [error, setError] = useState('')
+
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Subscribed:', email)
+    setLoading(true)
+    setError('')
+    setSuccess(false)
+    try {
+      await emailSub({ email })
+      setSuccess(true)
+      setEmail('')
+    } catch (err: any) {
+      setError(err?.message || 'Unable to subscribe')
+    }
+    setLoading(false)
   }
 
   return (
@@ -54,11 +69,22 @@ const Hero = () => {
                     />
                   </div>
                   
+                  {success && (
+                    <div className="mb-2 p-2 text-[#0ea47a] font-semibold bg-[#e6f3ed] border border-[#0ea47a]/20 rounded text-center">
+                      Thank you for subscribing!
+                    </div>
+                  )}
+                  {error && (
+                    <div className="mb-2 p-2 text-red-700 font-medium bg-red-50 border border-red-200 rounded text-center">
+                      {error}
+                    </div>
+                  )}
                   <button
                     type="submit"
-                    className="w-full border-1 border-white bg-gradient-to-r from-[#0ea47a] to-[#12d39d] hover:from-[#0a7557] hover:to-[#0ea47a] text-white px-6 py-3 rounded-lg transition-all duration-200 font-medium"
+                    className="w-full border-1 border-white bg-gradient-to-r from-[#0ea47a] to-[#12d39d] hover:from-[#0a7557] hover:to-[#0ea47a] text-white px-6 py-3 rounded-lg transition-all duration-200 font-medium disabled:opacity-60 disabled:cursor-wait"
+                    disabled={loading}
                   >
-                    Subscribe
+                    {loading ? 'Subscribing...' : 'Subscribe'}
                   </button>
                 </form>
 
