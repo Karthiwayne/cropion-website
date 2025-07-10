@@ -28,39 +28,27 @@ const Header = () => {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-gradient-to-br from-[#0ea47a] to-[#12d39d] rounded-lg flex items-center justify-center">
-                <Layers className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-xl font-bold text-gray-900">
-                Cropion
-              </span>
+             <img src="/cropion-logo.svg" width={160}/>
             </div>
             
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
-              {['Product', 'Resources', 'Customers', 'Pricing'].map((item) => (
+              {['Product', 'FAQ'].map((item) => (
                 <a 
                   key={item}
-                  href={`#${item.toLowerCase()}`} 
+                  href={`/${item.toLowerCase()}`} 
                   className="text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium text-sm"
                 >
                   {item}
                 </a>
               ))}
-            </nav>
-
-            {/* Desktop Actions */}
-            <div className="hidden md:flex items-center space-x-4">
-              <button className="text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium text-sm">
-                Login
-              </button>
-              <button 
+               <button 
                 onClick={() => setIsContactModalOpen(true)}
                 className="bg-gradient-to-r from-[#0ea47a] to-[#12d39d] hover:from-[#0a7557] hover:to-[#0ea47a] text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 shadow-sm hover:shadow-md"
               >
                 Contact us
               </button>
-            </div>
+            </nav>
 
             {/* Mobile Menu Button */}
             <button

@@ -57,7 +57,7 @@ const ScrollPopupManager = () => {
 
   return (
     <LeadPopup 
-      isOpen={showPopup} 
+      isOpen={false} 
       onClose={handleClosePopup} 
     />
   )

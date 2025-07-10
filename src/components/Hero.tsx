@@ -15,24 +15,26 @@ const Hero = () => {
     <section className="min-h-screen relative overflow-hidden bg-white pt-16">
       {/* Background Image with Rounded Corners */}
       <div className="relative mx-6 lg:mx-8 mt-8 mb-8 h-[calc(100vh-8rem)] rounded-3xl overflow-hidden">
+        <div className='ml-auto relative w-[25vw] h-[150%] z-2'> 
         <Image
-          src="https://images.pexels.com/photos/7728020/pexels-photo-7728020.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
+          src="/hero-1.jpg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
           alt="Smart farming background"
           fill
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-black/50"></div>
+        </div>
+        <div className="absolute w-[75vw] inset-0 bg-gradient-to-r from-[#0ea47a] to-[#12d39d] "></div>
         
         {/* Content positioned at bottom */}
         <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-end w-full">
+          <div className="flex flex-col">
             {/* Left Content */}
             <div className="text-white">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-                Everything you need
+              <h1 className="text-5xl md:text-6xl lg:text-6xl font-bold mb-6 leading-tight">
+                The age of autonomous farming
                 <br />
-                to build a smart farm
+                has begun
               </h1>
               
               <p className="text-xl text-gray-200 mb-8 leading-relaxed max-w-lg">
@@ -40,10 +42,7 @@ const Hero = () => {
                 Monitor, analyze, and optimize your agricultural operations.
               </p>
             </div>
-
-            {/* Right Subscription Form */}
-            <div className="lg:flex lg:justify-end">
-              <div className="max-w-md w-full">
+            <div className="max-w-md w-full">
                 <form onSubmit={handleSubscribe} className="space-y-4">
                   <div>
                     <input
@@ -58,7 +57,7 @@ const Hero = () => {
                   
                   <button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-[#0ea47a] to-[#12d39d] hover:from-[#0a7557] hover:to-[#0ea47a] text-white px-6 py-3 rounded-lg transition-all duration-200 font-medium"
+                    className="w-full border-1 border-white bg-gradient-to-r from-[#0ea47a] to-[#12d39d] hover:from-[#0a7557] hover:to-[#0ea47a] text-white px-6 py-3 rounded-lg transition-all duration-200 font-medium"
                   >
                     Subscribe
                   </button>
@@ -75,7 +74,6 @@ const Hero = () => {
                   <span className="text-sm text-white/90 font-medium">25k+ others subscribed</span>
                 </div>
               </div>
-            </div>
           </div>
         </div>
       </div>
