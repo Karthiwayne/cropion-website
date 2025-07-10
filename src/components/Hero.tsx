@@ -38,8 +38,7 @@ const Hero = () => {
               </h1>
               
               <p className="text-xl text-gray-200 mb-8 leading-relaxed max-w-lg">
-                Cropion makes it easy to deploy autonomous farming rovers in minutes.
-                Monitor, analyze, and optimize your agricultural operations.
+                Cropion brings autonomous intelligence to your fields — deploy smart rovers in minutes, gather real-time insights, and farm with precision like never before.
               </p>
             </div>
             <div className="max-w-md w-full">
