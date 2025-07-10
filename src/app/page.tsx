@@ -6,6 +6,7 @@ import Testimonial from '../components/Testimonial'
 import FAQ from '../components/FAQ'
 import Footer from '../components/Footer'
 import ScrollPopupManager from '../components/ScrollPopupManager'
+import Features from '@/components/product/Features'
 
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       <Header />
       <Hero />
+      <Features/>
       <Steps />
       <Portfolio />
       <Testimonial />

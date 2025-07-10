@@ -29,7 +29,7 @@ const STEPS = [
 
 export default function Steps() {
   return (
-    <section className="py-24 bg-[#e6e6e6]">
+    <section className="py-24">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="text-sm text-[#0ea47a] font-medium mb-4 uppercase tracking-wide">

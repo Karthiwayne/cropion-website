@@ -21,6 +21,7 @@ const Portfolio = () => {
             </h3>
             <p className="text-gray-600 mb-8 leading-relaxed">
               Digital health and wellness media of the future.
+              Nisi consectetur sint labore occaecat occaecat occaecat enim culpa irure qui nostrud laboris proident laboris. Amet veniam in culpa id Lorem velit in adipisicing nulla reprehenderit anim aliqua sint. Irure velit deserunt cupidatat eu. Nulla ullamco exercitation reprehenderit laboris consectetur veniam et laborum elit dolore.
             </p>
             <button className="flex items-center space-x-2 text-[#0ea47a] hover:text-[#0a7557] font-medium transition-colors">
               <span>View Project</span>

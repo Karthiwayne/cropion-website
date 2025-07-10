@@ -31,7 +31,7 @@ const FAQ = () => {
   ]
 
   return (
-    <section className="py-24 bg-[#e6e6e6]">
+    <section className="py-24">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div>
