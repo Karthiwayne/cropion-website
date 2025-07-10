@@ -66,7 +66,7 @@ const Testimonial = () => {
             </div>
             
             <blockquote className="text-xl leading-relaxed mb-8 min-h-[120px] flex items-center">
-              "{testimonials[currentIndex].quote}"
+            &quot;{testimonials[currentIndex].quote}&quot;
             </blockquote>
             
             <div className="text-white/80 mb-8">

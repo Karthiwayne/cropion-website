@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { X, User, Mail, Phone, Building, MapPin, Calendar, Tractor, Leaf, BarChart3, Send, Download, ArrowRight, Star, Gift, Clock, CheckCircle, AlertCircle, Zap } from 'lucide-react'
+import { User, Mail, Phone, Calendar, Tractor, BarChart3, Send, ArrowRight} from 'lucide-react'
 
 export default function LeadFormPage() {
   // Use same form state and logic as LeadPopup, but as a full page form
@@ -84,12 +84,12 @@ export default function LeadFormPage() {
       farmPhoto: file
     }))
   }
-  const handleRatingChange = (rating: number) => {
-    setFormData(prev => ({
-      ...prev,
-      currentSatisfaction: rating
-    }))
-  }
+  // const handleRatingChange = (rating: number) => {
+  //   setFormData(prev => ({
+  //     ...prev,
+  //     currentSatisfaction: rating
+  //   }))
+  // }
   const nextStep = () => {
     if (currentStep < totalSteps) {
       setCurrentStep(currentStep + 1)

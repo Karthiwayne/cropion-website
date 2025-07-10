@@ -80,7 +80,7 @@ const FAQPage = () => {
     }
   ]
 
-  const allFaqs = faqSections.flatMap(section => section.faqs)
+  // const allFaqs = faqSections.flatMap(section => section.faqs)
 
   return (
     <div className="min-h-screen bg-white">
@@ -109,8 +109,8 @@ const FAQPage = () => {
                 Everything you need to know
               </h1>
               <p className="text-gray-600 leading-relaxed">
-                Find answers to common questions about Cropion's AI-powered farming solutions, 
-                licensing, support, and more. Can't find what you're looking for? Contact our support team.
+                Find answers to common questions about Cropion&apos;s AI-powered farming solutions, 
+                licensing, support, and more. Can&apos;t find what you&apos;re looking for? Contact our support team.
               </p>
             </div>
             
