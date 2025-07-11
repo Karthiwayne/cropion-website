@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 import ContactModal from './ContactModal'
 import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -18,6 +19,29 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const pathname = typeof window !== 'undefined' ? window.location.pathname : '';
+  const router = typeof window !== 'undefined' ? require('next/navigation').useRouter() : undefined;
+  // (Note: useRouter can only be safely used in client components)
+
+  // Helper to swap /en, /hi, /ta at beginning of path (if present)
+  const locales = [
+    { code: 'en', label: 'English' },
+    { code: 'hi', label: 'हिन्दी' },
+    { code: 'ta', label: 'தமிழ்' },
+  ];
+
+  function getLocaleFromPath(path) {
+    const match = path.match(/^\/(en|hi|ta)(\/|$)/);
+    return match ? match[1] : 'en';
+  }
+
+  function localePath(path, locale) {
+    // Remove current locale
+    return path.replace(/^\/(en|hi|ta)(\/|$)/, `/${locale}/`);
+  }
+
+  const currentLocale = getLocaleFromPath(pathname);
+
   return (
     <>
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -28,7 +52,6 @@ const Header = () => {
         <div className="container mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            
 
 <Link href="/">
   <div className="flex items-center space-x-3 cursor-pointer">
@@ -37,7 +60,7 @@ const Header = () => {
 </Link>
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
-              {['Product', 'FAQ'].map((item) => (
+{['Product', 'FAQ'].map((item) => (
                 <a 
                   key={item}
                   href={`/${item.toLowerCase()}`} 
@@ -46,12 +69,33 @@ const Header = () => {
                   {item}
                 </a>
               ))}
-               <button 
+              <button 
                 onClick={() => setIsContactModalOpen(true)}
                 className="bg-gradient-to-r from-[#0ea47a] to-[#12d39d] hover:from-[#0a7557] hover:to-[#0ea47a] text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 shadow-sm hover:shadow-md"
               >
                 Contact us
               </button>
+              {/* Language Switcher Dropdown UI */}
+              <div className="ml-6">
+                <select
+                  className="border-gray-300 border rounded-lg px-3 py-1 text-gray-700 text-sm focus:ring-2 focus:ring-[#0ea47a] bg-white shadow-sm hover:shadow-md transition duration-200 min-w-[90px]"
+                  value={currentLocale}
+                  onChange={e => {
+                    const newLocale = e.target.value;
+                    if (router) {
+                      router.push(localePath(pathname, newLocale));
+                    } else {
+                      window.location.pathname = localePath(pathname, newLocale);
+                    }
+                  }}
+                  aria-label="Change language"
+                  title="Select language"
+                >
+                  {locales.map(({ code, label }) => (
+                    <option key={code} value={code}>{label}</option>
+                  ))}
+                </select>
+              </div>
             </nav>
 
             {/* Mobile Menu Button */}

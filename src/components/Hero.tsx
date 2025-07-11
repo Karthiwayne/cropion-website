@@ -88,16 +88,10 @@ const Hero = () => {
                   </button>
                 </form>
 
-                {/* Social proof */}
-                <div className="mt-6 flex items-center space-x-3">
-                  <div className="flex -space-x-2">
-                    <div className="w-8 h-8 bg-[#0ea47a] rounded-full border-2 border-white"></div>
-                    <div className="w-8 h-8 bg-[#12d39d] rounded-full border-2 border-white"></div>
-                    <div className="w-8 h-8 bg-[#0a7557] rounded-full border-2 border-white"></div>
-                    <div className="w-8 h-8 bg-gray-400 rounded-full border-2 border-white"></div>
-                  </div>
-                  <span className="text-sm text-white/90 font-medium">25k+ others subscribed</span>
-                </div>
+              {/* R&D Note */}
+              <div className="mt-6 text-sm text-white/90 font-medium">
+  🇮🇳 Built for Indian fields, with Indian farmers. We're prototyping and learning every day — your feedback matters.
+</div>
               </div>
           </div>
         </div>

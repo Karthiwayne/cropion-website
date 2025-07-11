@@ -1,34 +1,39 @@
-import { 
-  Users, 
-  Leaf, 
-  Target, 
-  DollarSign, 
-  Globe, 
-  MessageCircle,
+import {
+  Leaf,
+  DollarSign,
   CheckCircle,
   ArrowRight,
   Sprout,
   Shield,
-  BarChart3,
   Clock,
   Droplets,
   Recycle,
   Heart,
   BookOpen,
   TrendingUp,
-  Zap
+  Zap,
+  FlaskConical,
+  BrainCircuit,
+  Coins,
+  Tractor,
+  UsersRound
+} from 'lucide-react'
+import {
+  // for Open Collaboration
 } from 'lucide-react'
 
 const Portfolio = () => {
+
+
   const benefits = [
     {
-      icon: Users,
-      title: "Accessible Farming for Everyone",
-      description: "Turn your agricultural dreams into reality with step-by-step AI guidance",
+      icon: FlaskConical,
+      title: "Research-Driven Autonomy",
+      description: "We're pioneering next-gen autonomous farming through rigorous field experimentation.",
       features: [
-        "Turn your agricultural dreams into reality with step-by-step AI guidance",
-        "Perfect for beginners with no prior farming experience",
-        "Get expert-level advice 24/7 through our intelligent system"
+        "Actively prototyping AI-powered navigation and control",
+        "Designed for diverse Indian field conditions",
+        "Built hand-in-hand with farmers and experts"
       ],
       color: "from-[#0ea47a] to-[#12d39d]",
       bgColor: "bg-[#0ea47a]/10",
@@ -36,69 +41,69 @@ const Portfolio = () => {
     },
     {
       icon: Leaf,
-      title: "Smart Organic Farming Support",
-      description: "Comprehensive organic farming practices and eco-friendly solutions",
+      title: "Eco-Friendly Innovation",
+      description: "Our R&D is focused on minimizing ecological impact through smarter farming systems.",
       features: [
-        "Detailed organic farming practices and recommendations",
-        "Chemical-free pest management solutions",
-        "Natural soil enrichment techniques",
-        "Crop rotation planning for sustainable agriculture"
+        "Testing chemical-free weed removal solutions",
+        "Experimenting with low-water precision systems",
+        "Prioritizing renewable energy compatibility",
+        "Sustainable tilling and planting prototypes"
       ],
       color: "from-[#12d39d] to-[#0ea47a]",
       bgColor: "bg-[#12d39d]/10",
       iconColor: "text-[#12d39d]"
     },
     {
-      icon: Target,
-      title: "Personalized Crop Management",
-      description: "Custom growing schedules and real-time monitoring for optimal results",
+      icon: BrainCircuit,
+      title: "Crop-Specific Learning",
+      description: "We're gathering insights across multiple crops to tune AI behavior and decision-making.",
       features: [
-        "Custom growing schedules based on your location and climate",
-        "Real-time plant health monitoring",
-        "Early disease detection and prevention",
-        "Precise irrigation and fertilization schedules"
+        "Field trials for rice, millets, pulses, and vegetables",
+        "Tailored sensor calibrations for Indian soils",
+        "Predictive models under development",
+        "Real-world feedback shaping iterations"
       ],
       color: "from-[#0ea47a] to-[#12d39d]",
       bgColor: "bg-[#0ea47a]/10",
       iconColor: "text-[#0ea47a]"
     },
     {
-      icon: DollarSign,
-      title: "Cost-Effective Agriculture",
-      description: "Maximize profits while minimizing costs through AI optimization",
+      icon: Coins,
+      title: "Making Autonomy Affordable",
+      description: "We're testing ways to reduce cost without compromising performance.",
       features: [
-        "Reduce resource wastage through AI-optimized planning",
-        "Lower labor costs with automated monitoring",
-        "Maximize yield while minimizing inputs",
-        "Smart inventory management suggestions"
+        "Low-cost components under real stress testing",
+        "Open-source firmware where feasible",
+        "Iterative design to reduce maintenance",
+        "Local supply chain research for scaling"
       ],
       color: "from-[#12d39d] to-[#0ea47a]",
       bgColor: "bg-[#12d39d]/10",
       iconColor: "text-[#12d39d]"
     },
     {
-      icon: Globe,
-      title: "Environmental Sustainability",
-      description: "Eco-friendly practices that protect our planet for future generations",
+      icon: Tractor,
+      title: "Built for Indian Agriculture",
+      description: "Designed with Indian climate, land types, and labor realities in mind.",
       features: [
-        "Eco-friendly farming practices",
-        "Reduced water consumption through smart irrigation",
-        "Minimal carbon footprint",
-        "Biodiversity preservation techniques"
+        "Handling uneven, rugged terrain through dynamic path planning",
+        "Compact form factor for smallholder farms",
+        "Collaborating with regional agri bodies",
+        "Language support and simple UI in progress"
       ],
       color: "from-[#0ea47a] to-[#12d39d]",
       bgColor: "bg-[#0ea47a]/10",
       iconColor: "text-[#0ea47a]"
     },
     {
-      icon: MessageCircle,
-      title: "Community Support",
-      description: "Connect with fellow farmers and share knowledge for collective growth",
+      icon: UsersRound,
+      title: "Open Collaboration",
+      description: "We're inviting farmers, engineers, and agri-innovators to co-build the future.",
       features: [
-        "Connect with other Cropion users",
-        "Share experiences and best practices",
-        "Access to farming success stories",
-        "Regular system updates based on user feedback"
+        "Early adopter program for pilot users",
+        "Monthly feedback loops shaping dev direction",
+        "Workshops, interviews, and test runs",
+        "Transparent documentation and updates"
       ],
       color: "from-[#12d39d] to-[#0ea47a]",
       bgColor: "bg-[#12d39d]/10",
@@ -106,12 +111,35 @@ const Portfolio = () => {
     }
   ]
 
+
+
   const stats = [
-    { icon: TrendingUp, value: "40%", label: "Average Yield Increase", color: "text-[#0ea47a]" },
-    { icon: DollarSign, value: "60%", label: "Cost Reduction", color: "text-[#12d39d]" },
-    { icon: Droplets, value: "35%", label: "Water Savings", color: "text-[#0ea47a]" },
-    { icon: Clock, value: "24/7", label: "AI Monitoring", color: "text-[#12d39d]" }
+    {
+      icon: TrendingUp,
+      value: "Exploring Yield Boosts",
+      label: "Initial tests show promising crop responses",
+      color: "text-[#0ea47a]"
+    },
+    {
+      icon: DollarSign,
+      value: "Optimizing Costs",
+      label: "Focusing on reducing input and labor expenses",
+      color: "text-[#12d39d]"
+    },
+    {
+      icon: Droplets,
+      value: "Water-Smart Prototypes",
+      label: "Low-water systems in early validation phase",
+      color: "text-[#0ea47a]"
+    },
+    {
+      icon: Clock,
+      value: "Real-Time Monitoring",
+      label: "24/7 sensing & logging under field conditions",
+      color: "text-[#12d39d]"
+    }
   ]
+
 
   return (
     <section className="py-24 bg-gradient-to-br from-white via-gray-50 to-white">
@@ -119,32 +147,63 @@ const Portfolio = () => {
         {/* Header */}
         <div className="text-center mb-20">
           <div className="text-sm text-[#0ea47a] font-medium mb-4 uppercase tracking-wide">
-            BENEFITS OF USING CROPION
+            WHY CROPION, EVEN IN R&D?
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Your AI-Powered Farming Companion
+            Building Smarter Farms — Together
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Transform your agricultural operations with intelligent automation, sustainable practices, 
-            and expert guidance that makes farming accessible to everyone.
+            Cropion is in active research and development. We're prototyping, testing, and evolving
+            intelligent farm robotics to meet the unique needs of Indian agriculture.
           </p>
+
         </div>
 
         {/* Stats Section */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
           {stats.map((stat, index) => {
-            const Icon = stat.icon
+            const Icon = stat.icon; <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {stats.map((stat, index) => {
+              const Icon = stat.icon;
+              return (
+                <div
+                  key={index}
+                  className="flex items-center bg-white shadow-md border border-gray-100 rounded-2xl p-6"
+                >
+                  {/* Icon Container */}
+                  <div className="w-16 h-16 rounded-xl flex items-center justify-center bg-gray-50 border border-gray-100 mr-5 flex-shrink-0">
+                    <Icon className={`w-8 h-8 ${stat.color}`} />
+                  </div>
+          
+                  {/* Stat Content */}
+                  <div>
+                    {/* <div className={`text-2xl font-bold ${stat.color}`}>{stat.value}</div> */}
+                    <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          
+            </div>
             return (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center mx-auto mb-4 border border-gray-100">
+              <div
+                key={index}
+                className="flex flex-col items-center text-center bg-white rounded-2xl shadow-lg border border-gray-100 p-6 h-full min-h-[220px] justify-between"
+              >
+                <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-4 border border-gray-100 bg-gray-50">
                   <Icon className={`w-8 h-8 ${stat.color}`} />
                 </div>
-                <div className={`text-3xl font-bold ${stat.color} mb-2`}>{stat.value}</div>
-                <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
+                <div className="flex-1 flex flex-col justify-center">
+                  <div className={`text-xl font-bold ${stat.color} mb-2`}>{stat.value}</div>
+                  <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
+                </div>
               </div>
-            )
+            );
           })}
         </div>
+
 
         {/* Benefits Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
@@ -208,28 +267,29 @@ const Portfolio = () => {
                   </div>
                   <span className="text-xl font-semibold">Success Stories</span>
                 </div>
-                
+
                 <h3 className="text-3xl font-bold mb-6">
-                  Join thousands of farmers already transforming their operations
+                  Early Learnings From the FieldWant to shape the future of farming with us?
                 </h3>
-                
+
                 <p className="text-white/90 mb-8 leading-relaxed">
-                  From small family farms to large agricultural enterprises, Cropion users are seeing 
-                  remarkable results in yield improvement, cost reduction, and sustainable practices.
+                  Our prototypes are currently undergoing testing across multiple plots and conditions. Here's
+                  what we're discovering so far as we co-create the future of farming with early users.
                 </p>
 
                 <div className="space-y-4 mb-8">
-                  {[
-                    "95% of users report increased crop yields within first season",
-                    "Average 40% reduction in resource waste and operational costs",
-                    "100% satisfaction rate with our AI guidance system",
-                    "Active community of 10,000+ farmers sharing knowledge"
-                  ].map((stat, index) => (
-                    <div key={index} className="flex items-center space-x-3">
-                      <CheckCircle className="w-5 h-5 text-white flex-shrink-0" />
-                      <span className="text-white/90">{stat}</span>
-                    </div>
-                  ))}
+                  {
+                    [
+                      "Improved weed removal effectiveness over manual trials",
+                      "Reduction in labor costs during early-stage weeding",
+                      "Increased crop visibility through real-time rover imaging",
+                      "Great enthusiasm from early farmer collaborators"
+                    ].map((stat, index) => (
+                      <div key={index} className="flex items-center space-x-3">
+                        <CheckCircle className="w-5 h-5 text-white flex-shrink-0" />
+                        <span className="text-white/90">{stat}</span>
+                      </div>
+                    ))}
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -237,7 +297,7 @@ const Portfolio = () => {
                     <BookOpen className="w-5 h-5" />
                     <span>Read Success Stories</span>
                   </button>
-                  
+
                   <button className="border-2 border-white text-white hover:bg-white hover:text-[#0ea47a] px-8 py-4 rounded-xl transition-all duration-200 font-medium">
                     Join Community
                   </button>
@@ -285,16 +345,16 @@ const Portfolio = () => {
         <div className="text-center mt-16">
           <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Ready to revolutionize your farming?
+              Want to shape the future of farming with us?
             </h3>
             <p className="text-gray-600 mb-6 leading-relaxed">
-              Join the agricultural revolution and start your journey towards smarter, 
+              Join the agricultural revolution and start your journey towards smarter,
               more sustainable, and profitable farming today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="bg-gradient-to-r from-[#0ea47a] to-[#12d39d] hover:from-[#0a7557] hover:to-[#0ea47a] text-white px-8 py-4 rounded-xl transition-all duration-200 font-medium flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl">
                 <Sprout className="w-5 h-5" />
-                <span>Start Free Trial</span>
+                <span>Join Our Pilot Program</span>
               </button>
               <button className="border-2 border-[#0ea47a] text-[#0ea47a] hover:bg-[#0ea47a] hover:text-white px-8 py-4 rounded-xl transition-all duration-200 font-medium">
                 Schedule Demo

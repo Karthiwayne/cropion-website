@@ -1,52 +1,53 @@
-import { MapPin, Settings, Cog, BarChart3, ArrowRight, CheckCircle } from 'lucide-react'
+import { MapPin, Settings, Cog, BarChart3, ArrowRight, CheckCircle, PhoneCall } from 'lucide-react'
 
 const Steps = () => {
   const steps = [
     {
       icon: MapPin,
-      title: "Field Trial",
-      description: "Comprehensive field assessment and baseline establishment",
+      title: "Initial Field Study",
+      description: "Exploring real-world conditions and identifying R&D challenges",
       details: [
-        "Assess soil conditions and terrain characteristics",
-        "Document existing vegetation patterns",
-        "Record baseline measurements and GPS coordinates",
-        "Identify optimal deployment zones"
+        "Select test plots with diverse terrain and crop types",
+        "Gather environmental and soil data to inform design",
+        "Identify logistical and practical deployment issues",
+        "Map early risks and edge cases in the field"
       ]
     },
     {
       icon: Settings,
-      title: "Machine Deployment",
-      description: "Strategic equipment positioning and system preparation",
+      title: "Prototype Testing",
+      description: "Testing early rover builds under real conditions",
       details: [
-        "Position autonomous rovers strategically",
-        "Calibrate all sensors and navigation systems",
-        "Verify wireless connectivity and data transmission",
-        "Test operational readiness and safety protocols"
+        "Deploy initial prototypes to test mobility and safety",
+        "Evaluate hardware performance in live terrain",
+        "Manually log operational issues and breakdowns",
+        "Refine mechanics and electronics based on observations"
       ]
     },
     {
       icon: Cog,
-      title: "Setup Configuration",
-      description: "Advanced sensor installation and system synchronization",
+      title: "Sensor Integration",
+      description: "Experimenting with sensory inputs and data capture logic",
       details: [
-        "Install precision monitoring sensors",
-        "Configure crop-specific parameters",
-        "Establish automated data collection protocols",
-        "Sync with central management dashboard"
+        "Test soil, proximity, and visual sensors for responsiveness",
+        "Validate data quality and environmental noise resistance",
+        "Integrate with onboard processing units",
+        "Iterate firmware for stability and accuracy"
       ]
     },
     {
       icon: BarChart3,
-      title: "Crop Monitoring",
-      description: "Continuous monitoring and real-time analytics",
+      title: "Autonomy Trials",
+      description: "Early tests for navigation, task execution, and error handling",
       details: [
-        "Deploy soil moisture and nutrient sensors",
-        "Set up automated alert systems",
-        "Schedule regular data collection intervals",
-        "Implement predictive analytics dashboard"
+        "Implement basic autonomous routines (e.g., straight path driving)",
+        "Simulate obstacle detection and avoidance",
+        "Manually validate weeding or crop interaction modules",
+        "Document AI feedback loops and training needs"
       ]
     }
   ]
+
 
   return (
     <section className="py-24 bg-gradient-to-br from-gray-50 to-white">
@@ -56,10 +57,10 @@ const Steps = () => {
             HOW IT WORKS
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Get started in four simple steps
+            Building the Future, Step by Step
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Our streamlined deployment process ensures your autonomous farming system is operational quickly and efficiently.
+            Our R&D journey is focused on iterating, testing, and learning from the field as we develop full autonomy for farming.
           </p>
         </div>
 
@@ -73,10 +74,7 @@ const Steps = () => {
                   <h3 className="text-2xl font-bold text-white mb-2">Deployment Process</h3>
                   <p className="text-white/90">Complete setup in 4 comprehensive steps</p>
                 </div>
-                <div className="hidden md:flex items-center space-x-2 text-white/80">
-                  <CheckCircle className="w-5 h-5" />
-                  <span className="text-sm font-medium">Proven Process</span>
-                </div>
+
               </div>
             </div>
 
@@ -87,7 +85,7 @@ const Steps = () => {
                 <div className="relative">
                   {/* Progress Line */}
                   <div className="absolute top-12 left-12 right-12 h-1 bg-gradient-to-r from-[#0ea47a] via-[#12d39d] to-[#0ea47a] rounded-full opacity-20"></div>
-                  
+
                   <div className="grid grid-cols-4 gap-8">
                     {steps.map((step, index) => {
                       const Icon = step.icon
@@ -99,7 +97,6 @@ const Steps = () => {
                             <div className="relative mb-6">
                               <div className="w-24 h-24 bg-gradient-to-br from-[#0ea47a] to-[#12d39d] rounded-2xl flex items-center justify-center mx-auto shadow-lg relative z-10">
                                 <div className="text-center">
-                                  <div className="text-2xl font-bold text-white mb-1">{index + 1}</div>
                                   <Icon className="w-6 h-6 text-white mx-auto" />
                                 </div>
                               </div>
@@ -123,8 +120,8 @@ const Steps = () => {
                           {/* Connection Arrow */}
                           {index < steps.length - 1 && (
                             <div className="absolute left-full top-12 transform -translate-x-1/2 w-8 flex items-center justify-center z-20">
-                              <div className="w-10 h-10 bg-white rounded-full shadow-lg border-2 border-[#0ea47a]/20 flex items-center justify-center">
-                                <ArrowRight className="w-5 h-5 text-[#0ea47a]" />
+                              <div className="w-10 h-10 bg-white rounded-full shadow-lg border-2 border-[#0ea47a]/20 flex items-center justify-center mt-[-16px]">
+                                <ArrowRight className="w-10 h-5 text-[#0ea47a]" />
                               </div>
                             </div>
                           )}
@@ -146,7 +143,6 @@ const Steps = () => {
                           {/* Step Number and Icon */}
                           <div className="w-16 h-16 bg-gradient-to-br from-[#0ea47a] to-[#12d39d] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                             <div className="text-center">
-                              <div className="text-lg font-bold text-white">{index + 1}</div>
                               <Icon className="w-4 h-4 text-white mx-auto" />
                             </div>
                           </div>
@@ -155,7 +151,7 @@ const Steps = () => {
                           <div className="flex-1">
                             <h4 className="text-lg font-bold text-gray-900 mb-2">{step.title}</h4>
                             <p className="text-sm text-gray-600 mb-4 leading-relaxed">{step.description}</p>
-                            
+
                             <div className="space-y-2">
                               {step.details.map((detail, detailIndex) => (
                                 <div key={detailIndex} className="flex items-start space-x-2">
@@ -182,7 +178,6 @@ const Steps = () => {
                         {/* Step Number and Icon */}
                         <div className="w-14 h-14 bg-gradient-to-br from-[#0ea47a] to-[#12d39d] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                           <div className="text-center">
-                            <div className="text-sm font-bold text-white">{index + 1}</div>
                             <Icon className="w-4 h-4 text-white mx-auto" />
                           </div>
                         </div>
@@ -191,7 +186,7 @@ const Steps = () => {
                         <div className="flex-1">
                           <h4 className="text-lg font-bold text-gray-900 mb-2">{step.title}</h4>
                           <p className="text-sm text-gray-600 mb-4 leading-relaxed">{step.description}</p>
-                          
+
                           <div className="space-y-2">
                             {step.details.map((detail, detailIndex) => (
                               <div key={detailIndex} className="flex items-start space-x-2">
@@ -205,7 +200,7 @@ const Steps = () => {
 
                       {/* Vertical Connection Line */}
                       {index < steps.length - 1 && (
-                        <div className="absolute left-7 top-16 w-0.5 h-8 bg-gradient-to-b from-[#0ea47a] to-[#12d39d] opacity-30"></div>
+                        <div className="absolute left-7 top-16 w-0.5 h-80 md:h-8 bg-gradient-to-b from-[#0ea47a] to-[#12d39d] opacity-30"></div>
                       )}
                     </div>
                   )
@@ -217,20 +212,20 @@ const Steps = () => {
             <div className="bg-gradient-to-r from-[#0ea47a]/5 to-[#12d39d]/5 px-8 py-6 border-t border-gray-100">
               <div className="flex flex-col md:flex-row items-center justify-between">
                 <div className="mb-4 md:mb-0">
-                  <h4 className="font-semibold text-gray-900 mb-1">Ready to get started?</h4>
-                  <p className="text-sm text-gray-600">Our team will guide you through each step of the process.</p>
+                  <h4 className="font-semibold text-gray-900 mb-1">Join us in shaping the future</h4>
+                  <p className="text-sm text-gray-600">
+                    We're in active development — collaborate, test, or give feedback on the next generation of agri-autonomy.
+                  </p>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-3">
                   <button className="bg-gradient-to-r from-[#0ea47a] to-[#12d39d] hover:from-[#0a7557] hover:to-[#0ea47a] text-white px-6 py-3 rounded-lg transition-all duration-200 font-medium flex items-center space-x-2 shadow-md hover:shadow-lg">
-                    <span>Start Deployment</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                  <button className="bg-white border border-[#0ea47a] text-[#0ea47a] hover:bg-[#0ea47a] hover:text-white px-6 py-3 rounded-lg transition-all duration-200 font-medium">
-                    Learn More
+                    <span>Contact us</span>
+                    <PhoneCall className="w-4 h-4" />
                   </button>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
 
@@ -238,9 +233,10 @@ const Steps = () => {
         <div className="text-center mt-12">
           <div className="inline-flex items-center space-x-2 text-sm text-gray-600 bg-white px-6 py-3 rounded-full shadow-sm border border-gray-100">
             <CheckCircle className="w-4 h-4 text-[#0ea47a]" />
-            <span>Typical deployment completed in 2-3 days</span>
+            <span>Currently in field testing – insights evolving every day</span>
           </div>
         </div>
+
       </div>
     </section>
   )

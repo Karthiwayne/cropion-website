@@ -1,0 +1,215 @@
+{
+  "welcome": "Welcome to our application!",
+  "login": "Login",
+  "logout": "Logout",
+  "signup": "Sign Up",
+  "username": "Username",
+  "password": "Password",
+  "email": "Email",
+  "submit": "Submit",
+  "cancel": "Cancel",
+  "dashboard": "Dashboard",
+  "settings": "Settings",
+  "profile": "Profile",
+  "language": "Language",
+  "search": "Search",
+  "save": "Save",
+  "edit": "Edit",
+  "delete": "Delete",
+  "confirm": "Confirm",
+  "error": "An error occurred. Please try again.",
+  "success": "Operation successful!",
+  "loading": "Loading...",
+  "yes": "Yes",
+  "no": "No",
+
+  "about": {
+    "pageTitle": "About",
+    "headline": "The Future of Farming is Autonomous",
+    "subheadline": "At Cropion, we’re pioneering agricultural autonomy to empower farmers with intelligent, self-driven solutions that scale.",
+    "missionTitle": "Our Mission",
+    "mission": "To revolutionize farming through autonomous, AI-driven technology — helping farmers increase productivity, reduce manual labor, and achieve long-term sustainability.",
+    "storyTitle": "How We Started",
+    "story": "Cropion began with a bold vision — to bring full autonomy to Indian farms. Witnessing the urgent need for scalable, intelligent tools amidst labor shortages and climate challenges, we set out to bridge the gap between cutting-edge robotics and grassroots agriculture. What started as a prototype in the fields has grown into a full-stack agri-autonomy platform.",
+    "storyItems": [
+      "Headquartered in India, built for the world",
+      "Interdisciplinary team of engineers, agronomists, and innovators",
+      "Driven by purpose, powered by technology"
+    ],
+    "valuesTitle": "What We Stand For",
+    "valuesList": [
+      "Farmer-first: We innovate for and with our users",
+      "Transparency: Open, reliable solutions every step",
+      "Sustainability: Leave land and communities stronger",
+      "Autonomy: Redefining what's possible with self-operating machines"
+    ],
+    "teamTitle": "Team",
+    "teamHeadline": "Meet the People Behind Cropion",
+    "teamMembers": [
+      {"name": "Ram Kumar", "role": "Founder & CEO", "description": "Serial entrepreneur & agritech enthusiast with 10+ years helping farmers adopt tech-driven solutions."},
+      {"name": "Priya Sharma", "role": "Chief Technology Officer", "description": "Data engineer and software architect focusing on scalable, transparent farm analytics."},
+      {"name": "Amit Patel", "role": "Lead Agronomist", "description": "Expert in crop science and on-ground implementation, connecting tech to real field progress."},
+      {"name": "Harini Iyer", "role": "Customer Success", "description": "Champion of farmer support and education, ensuring every grower wins with Cropion."}
+    ]
+  },
+
+  "faq": {
+    "pageTitle": "Frequently Asked Questions",
+    "headline": "Everything you need to know",
+    "intro": "Find answers to common questions about Cropion's AI-powered farming solutions, licensing, support, and more. Can't find what you're looking for? Contact our support team.",
+    "backToHome": "Back to Home",
+    "sections": [
+      {
+        "title": "GENERAL",
+        "faqs": [
+          {
+            "question": "What is Cropion?",
+            "answer": "Cropion is an AI-powered agricultural platform that provides autonomous farming rovers and smart monitoring systems to help farmers optimize their operations and increase yields through advanced computer vision and machine learning technologies."
+          },
+          {
+            "question": "How does Cropion work?",
+            "answer": "Our system uses advanced computer vision and machine learning to detect weeds, monitor crop health, and provide real-time insights about your farm operations. The autonomous rovers navigate through fields, collecting data and performing targeted interventions."
+          },
+          {
+            "question": "What are components?",
+            "answer": "Components are modular parts of our system including rovers, sensors, monitoring stations, and software modules that work together to create a complete farming solution. Each component is designed to integrate seamlessly with others."
+          },
+          {
+            "question": "How often are new components added?",
+            "answer": "We regularly update our platform with new features and components based on user feedback and technological advances in agriculture. Major updates are released quarterly, with minor improvements deployed monthly."
+          },
+          {
+            "question": "Do I need to know how to use Figma?",
+            "answer": "No technical knowledge is required to operate Cropion systems. Our intuitive dashboard and mobile app make it easy for farmers of all technical backgrounds to monitor and control their agricultural operations."
+          }
+        ]
+      },
+      {
+        "title": "LICENSE",
+        "faqs": [
+          {
+            "question": "Can I use it for commercial projects?",
+            "answer": "Yes, Cropion is designed for commercial agricultural operations of all sizes, from small farms to large-scale enterprises. Our licensing model scales with your operation size and needs."
+          },
+          {
+            "question": "What does 'Lifetime Access' mean?",
+            "answer": "Lifetime Access means you get permanent access to the Cropion platform and all future updates without recurring subscription fees. This includes hardware maintenance, software updates, and customer support."
+          },
+          {
+            "question": "Can I upgrade to a team license?",
+            "answer": "Yes, you can upgrade to a team license at any time. Team licenses allow multiple users to access and manage the same farming operation, with role-based permissions and collaborative features."
+          }
+        ]
+      },
+      {
+        "title": "LICENSE",
+        "faqs": [
+          {
+            "question": "Can I get an invoice?",
+            "answer": "Yes, we provide detailed invoices for all purchases. Invoices are automatically generated and sent to your registered email address. You can also download invoices from your account dashboard."
+          },
+          {
+            "question": "Is it a one-time payment?",
+            "answer": "Our Lifetime Access plan is a one-time payment with no recurring fees. However, we also offer flexible subscription plans for different business needs, including monthly and annual options."
+          }
+        ]
+      },
+      {
+        "title": "SUPPORT",
+        "faqs": [
+          {
+            "question": "Do you offer technical support?",
+            "answer": "Yes, we provide comprehensive technical support including 24/7 chat support, phone support during business hours, on-site installation assistance, and extensive documentation and video tutorials."
+          },
+          {
+            "question": "What is your refund policy?",
+            "answer": "We offer a 30-day money-back guarantee for all purchases. If you're not satisfied with Cropion within the first 30 days, we'll provide a full refund. Hardware returns must be in original condition."
+          }
+        ]
+      }
+    ],
+    "contactSupport": "Still have questions?",
+    "contactSupportDesc": "Our support team is here to help you get the most out of Cropion.",
+    "contactSupportBtn": "Contact Support"
+  },
+
+  "lead": {
+    "pageTitle": "Transform Your Farm Today",
+    "subtitle": "Get personalized recommendations for your agricultural needs",
+    "step": "Step {current} of {total}",
+    "basicInfo": "Basic Information",
+    "basicInfoDesc": "Standard text inputs and basic fields",
+    "firstName": "First Name * (Text Input)",
+    "lastName": "Last Name * (Text Input)",
+    "email": "Email Address * (Email Input)",
+    "phone": "Phone Number (Tel Input)",
+    "acreage": "Farm Acreage (Number Input)",
+    "yearsInBusiness": "Years in Business (Number Input)",
+    "preferredCallDate": "Preferred Call Date (Date Input)",
+    "harvestSeason": "Harvest Season (Month Input)",
+    "brandColor": "Brand Color (Color Picker)",
+    "farmPhoto": "Farm Photo (File Upload)",
+    "selectionOptions": "Selection Options",
+    "selectionOptionsDesc": "Radio buttons, dropdowns, and single selections",
+    "interactiveElements": "Interactive Elements",
+    "interactiveElementsDesc": "Checkboxes, toggles, sliders, and multi-selections",
+    "finalDetails": "Final Details",
+    "finalDetailsDesc": "Text areas and additional information",
+    "continue": "Continue",
+    "previous": "Previous",
+    "getMyAssessment": "Get My Assessment"
+  },
+
+  "product": {
+    "headline": "Built for the modern farm",
+    "intro": "Cropion revolutionizes agriculture with AI-powered autonomous rovers that detect weeds, monitor crop health, and optimize farming operations. Experience the future of sustainable farming with precision agriculture technology that increases yields while reducing costs.",
+    "intro2": "Our advanced computer vision and machine learning systems work around the clock to protect your crops, analyze soil conditions, and provide actionable insights that transform traditional farming into smart, data-driven agriculture.",
+    "watchDemo": "Watch Demo",
+    "requestQuote": "Request Quote",
+    "yieldIncreaseStat": "Yield Increase",
+    "lessHerbicideStat": "Less Herbicide",
+    "monitoringStat": "Monitoring",
+    "featuresTitle": "Built for the modern farm",
+    "featuresDesc": "Comprehensive AI-powered farming solutions that transform traditional agriculture into smart, sustainable, and profitable operations.",
+    "aiWeedDetectionTitle": "AI Weed Detection",
+    "aiWeedDetectionDesc": "Advanced computer vision technology identifies and targets weeds with 99.5% accuracy, reducing herbicide usage by up to 70% while protecting your crops.",
+    "cropMonitoringTitle": "Crop Monitoring",
+    "cropMonitoringDesc": "Real-time health monitoring tracks growth patterns, nutrient levels, and disease indicators to optimize yield and prevent crop loss.",
+    "autonomousRoversTitle": "Autonomous Rovers",
+    "autonomousRoversDesc": "Self-navigating rovers work 24/7 across your fields, performing precise interventions and data collection without human supervision.",
+    "yieldAnalyticsTitle": "Yield Analytics",
+    "yieldAnalyticsDesc": "Predictive analytics forecast harvest yields, optimize planting schedules, and identify opportunities for productivity improvements.",
+    "sustainabilityTrackingTitle": "Sustainability Tracking",
+    "sustainabilityTrackingDesc": "Monitor environmental impact, track carbon footprint, and optimize resource usage for sustainable farming practices.",
+    "precisionAgriTitle": "Precision Agriculture",
+    "precisionAgriDesc": "GPS-guided precision application of fertilizers and treatments ensures optimal resource utilization and minimal environmental impact.",
+    "featureLearnMoreBtn": "Learn more",
+    "additionalInfoTitle": "Everything you need to scale your farm",
+    "additionalInfoDesc": "From small family farms to large agricultural enterprises, Cropion's AI platform grows with your operation. Get access to advanced analytics, custom integrations, and dedicated agricultural support specialists.",
+    "additionalInfoBullets": [
+      "Real-time crop health analytics",
+      "Custom field mapping integration",
+      "24/7 agricultural support team",
+      "Enterprise-grade data security"
+    ],
+    "additionalPerformanceStats": {
+      "farmPerformance": "Farm Performance",
+      "weedDetectionAccuracy": "Weed Detection Accuracy",
+      "systemUptime": "System Uptime",
+      "coverageSpeed": "Coverage Speed",
+      "batteryLife": "Battery Life"
+    },
+    "deployWithEaseTitle": "Deploy with ease",
+    "deployWithEaseDesc": "Get your autonomous farming system operational in hours, not weeks. Our plug-and-play rovers integrate seamlessly with existing farm infrastructure.",
+    "scaleTogetherTitle": "Scale together",
+    "scaleTogetherDesc": "From small family farms to large agricultural enterprises, Cropion grows with your operation. Collaborative tools for farm teams and consultants.",
+    "harvestInstantlyTitle": "Harvest instantly",
+    "harvestInstantlyDesc": "See immediate results with real-time crop insights, automated interventions, and data-driven recommendations that boost yields from day one.",
+    "startFreeTrial": "Start Free Trial",
+    "scheduleDemo": "Schedule Demo",
+    "guarantee": "No setup fees • 30-day money-back guarantee • Cancel anytime",
+    "testimonialsTitle": "Trusted by farmers worldwide",
+    "testimonialsDesc": "See how Cropion is transforming agriculture across the globe"
+  }
+}
+
