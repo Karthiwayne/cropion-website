@@ -1,4 +1,21 @@
-// This layout is now handled on a per-locale basis in [locale]/layout.tsx using next-intl
-export default function PlaceholderLayout({children}: {children: React.ReactNode}) {
-  return children;
+// app/layout.tsx
+
+import './globals.css' // or your global styles
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Your Site Title',
+  description: 'Your site description',
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="en">
+      <body>{children}</body>
+    </html>
+  )
 }

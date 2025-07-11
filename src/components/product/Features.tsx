@@ -57,9 +57,9 @@ const Features = () => {
     return <section className="py-24 bg-white">
     <div className="container mx-auto px-6 lg:px-8">
       <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-          Built for the modern farm
-        </h2>
+      <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+  Building for every farm — from fields of today to farms of the future
+</h2>
         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
           Comprehensive AI-powered farming solutions that transform traditional agriculture 
           into smart, sustainable, and profitable operations.
