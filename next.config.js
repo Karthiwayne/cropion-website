@@ -7,13 +7,8 @@ const withNextIntl = require('next-intl/plugin')();
 
 module.exports = withNextIntl({
   experimental: {
-    serverActions: true
+    // Remove or specify as an object according to Next.js requirements
   },
-  // Add your Next.js and next-intl config below
-  i18n: {
-    locales: ['en', 'ta', 'hi'],
-    defaultLocale: 'en',
-    localeDetection: true
-  }
+  // Removed i18n config for App Router as it's unsupported
 });
 
