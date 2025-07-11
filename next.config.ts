@@ -1,3 +1,7 @@
+import createNextIntlPlugin from 'next-intl/plugin';
+
+const withNextIntl = createNextIntlPlugin();
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -5,20 +9,4 @@ const nextConfig = {
   },
 }
 
-module.exports = nextConfig
-
-
-// /**
-//  * next-intl configuration for Next.js 15 App Router
-//  */
-
-
-
-
-// module.exports = withNextIntl({
-//   experimental: {
-//     // Remove or specify as an object according to Next.js requirements
-//   },
-//   // Removed i18n config for App Router as it's unsupported
-// });
-
+export default withNextIntl(nextConfig);

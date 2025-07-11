@@ -23,10 +23,26 @@
   "yes": "Yes",
   "no": "No",
 
+  "navigation": {
+    "home": "Home",
+    "product": "Product",
+    "about": "About",
+    "faq": "FAQ",
+    "contact": "Contact Us"
+  },
+
+  "hero": {
+    "headline": "The age of autonomous farming has begun",
+    "subheadline": "Cropion brings autonomous intelligence to your fields — deploy smart rovers in minutes, gather real-time insights, and farm with precision like never before.",
+    "subscribe": "Subscribe",
+    "subscribePlaceholder": "Email address",
+    "rdNote": "🇮🇳 Built for Indian fields, with Indian farmers. We're prototyping and learning every day — your feedback matters."
+  },
+
   "about": {
     "pageTitle": "About",
     "headline": "The Future of Farming is Autonomous",
-    "subheadline": "At Cropion, we’re pioneering agricultural autonomy to empower farmers with intelligent, self-driven solutions that scale.",
+    "subheadline": "At Cropion, we're pioneering agricultural autonomy to empower farmers with intelligent, self-driven solutions that scale.",
     "missionTitle": "Our Mission",
     "mission": "To revolutionize farming through autonomous, AI-driven technology — helping farmers increase productivity, reduce manual labor, and achieve long-term sustainability.",
     "storyTitle": "How We Started",
@@ -79,7 +95,7 @@
             "answer": "We regularly update our platform with new features and components based on user feedback and technological advances in agriculture. Major updates are released quarterly, with minor improvements deployed monthly."
           },
           {
-            "question": "Do I need to know how to use Figma?",
+            "question": "Do I need technical knowledge to use Cropion?",
             "answer": "No technical knowledge is required to operate Cropion systems. Our intuitive dashboard and mobile app make it easy for farmers of all technical backgrounds to monitor and control their agricultural operations."
           }
         ]
@@ -102,7 +118,7 @@
         ]
       },
       {
-        "title": "LICENSE",
+        "title": "BILLING",
         "faqs": [
           {
             "question": "Can I get an invoice?",
@@ -131,33 +147,6 @@
     "contactSupport": "Still have questions?",
     "contactSupportDesc": "Our support team is here to help you get the most out of Cropion.",
     "contactSupportBtn": "Contact Support"
-  },
-
-  "lead": {
-    "pageTitle": "Transform Your Farm Today",
-    "subtitle": "Get personalized recommendations for your agricultural needs",
-    "step": "Step {current} of {total}",
-    "basicInfo": "Basic Information",
-    "basicInfoDesc": "Standard text inputs and basic fields",
-    "firstName": "First Name * (Text Input)",
-    "lastName": "Last Name * (Text Input)",
-    "email": "Email Address * (Email Input)",
-    "phone": "Phone Number (Tel Input)",
-    "acreage": "Farm Acreage (Number Input)",
-    "yearsInBusiness": "Years in Business (Number Input)",
-    "preferredCallDate": "Preferred Call Date (Date Input)",
-    "harvestSeason": "Harvest Season (Month Input)",
-    "brandColor": "Brand Color (Color Picker)",
-    "farmPhoto": "Farm Photo (File Upload)",
-    "selectionOptions": "Selection Options",
-    "selectionOptionsDesc": "Radio buttons, dropdowns, and single selections",
-    "interactiveElements": "Interactive Elements",
-    "interactiveElementsDesc": "Checkboxes, toggles, sliders, and multi-selections",
-    "finalDetails": "Final Details",
-    "finalDetailsDesc": "Text areas and additional information",
-    "continue": "Continue",
-    "previous": "Previous",
-    "getMyAssessment": "Get My Assessment"
   },
 
   "product": {
@@ -210,6 +199,32 @@
     "guarantee": "No setup fees • 30-day money-back guarantee • Cancel anytime",
     "testimonialsTitle": "Trusted by farmers worldwide",
     "testimonialsDesc": "See how Cropion is transforming agriculture across the globe"
+  },
+
+  "lead": {
+    "pageTitle": "Transform Your Farm Today",
+    "subtitle": "Get personalized recommendations for your agricultural needs",
+    "step": "Step {current} of {total}",
+    "basicInfo": "Basic Information",
+    "basicInfoDesc": "Standard text inputs and basic fields",
+    "firstName": "First Name * (Text Input)",
+    "lastName": "Last Name * (Text Input)",
+    "email": "Email Address * (Email Input)",
+    "phone": "Phone Number (Tel Input)",
+    "acreage": "Farm Acreage (Number Input)",
+    "yearsInBusiness": "Years in Business (Number Input)",
+    "preferredCallDate": "Preferred Call Date (Date Input)",
+    "harvestSeason": "Harvest Season (Month Input)",
+    "brandColor": "Brand Color (Color Picker)",
+    "farmPhoto": "Farm Photo (File Upload)",
+    "selectionOptions": "Selection Options",
+    "selectionOptionsDesc": "Radio buttons, dropdowns, and single selections",
+    "interactiveElements": "Interactive Elements",
+    "interactiveElementsDesc": "Checkboxes, toggles, sliders, and multi-selections",
+    "finalDetails": "Final Details",
+    "finalDetailsDesc": "Text areas and additional information",
+    "continue": "Continue",
+    "previous": "Previous",
+    "getMyAssessment": "Get My Assessment"
   }
 }
-

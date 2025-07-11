@@ -1,7 +1,7 @@
 'use client'
 
-
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 import { 
   ArrowLeft, 
   ArrowRight, 
@@ -23,48 +23,48 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 const ProductPage = () => {
-  // const [activeTab, setActiveTab] = useState('overview')
+  const t = useTranslations('product')
 
   const features = [
     {
       icon: Bot,
-      title: "AI Weed Detection",
-      description: "Advanced computer vision technology identifies and targets weeds with 99.5% accuracy, reducing herbicide usage by up to 70% while protecting your crops.",
+      title: t('aiWeedDetectionTitle'),
+      description: t('aiWeedDetectionDesc'),
       color: "text-[#0ea47a]",
       bgColor: "bg-[#0ea47a]/10"
     },
     {
       icon: BarChart3,
-      title: "Crop Monitoring",
-      description: "Real-time health monitoring tracks growth patterns, nutrient levels, and disease indicators to optimize yield and prevent crop loss.",
+      title: t('cropMonitoringTitle'),
+      description: t('cropMonitoringDesc'),
       color: "text-[#12d39d]",
       bgColor: "bg-[#12d39d]/10"
     },
     {
       icon: Tractor,
-      title: "Autonomous Rovers",
-      description: "Self-navigating rovers work 24/7 across your fields, performing precise interventions and data collection without human supervision.",
+      title: t('autonomousRoversTitle'),
+      description: t('autonomousRoversDesc'),
       color: "text-[#0ea47a]",
       bgColor: "bg-[#0ea47a]/10"
     },
     {
       icon: TrendingUp,
-      title: "Yield Analytics",
-      description: "Predictive analytics forecast harvest yields, optimize planting schedules, and identify opportunities for productivity improvements.",
+      title: t('yieldAnalyticsTitle'),
+      description: t('yieldAnalyticsDesc'),
       color: "text-[#12d39d]",
       bgColor: "bg-[#12d39d]/10"
     },
     {
       icon: Leaf,
-      title: "Sustainability Tracking",
-      description: "Monitor environmental impact, track carbon footprint, and optimize resource usage for sustainable farming practices.",
+      title: t('sustainabilityTrackingTitle'),
+      description: t('sustainabilityTrackingDesc'),
       color: "text-[#0ea47a]",
       bgColor: "bg-[#0ea47a]/10"
     },
     {
       icon: Shield,
-      title: "Precision Agriculture",
-      description: "GPS-guided precision application of fertilizers and treatments ensures optimal resource utilization and minimal environmental impact.",
+      title: t('precisionAgriTitle'),
+      description: t('precisionAgriDesc'),
       color: "text-[#12d39d]",
       bgColor: "bg-[#12d39d]/10"
     }
@@ -73,27 +73,30 @@ const ProductPage = () => {
   const finalFeatures = [
     {
       icon: Zap,
-      title: "Deploy with ease",
-      description: "Get your autonomous farming system operational in hours, not weeks. Our plug-and-play rovers integrate seamlessly with existing farm infrastructure."
+      title: t('deployWithEaseTitle'),
+      description: t('deployWithEaseDesc')
     },
     {
       icon: Users,
-      title: "Scale together",
-      description: "From small family farms to large agricultural enterprises, Cropion grows with your operation. Collaborative tools for farm teams and consultants."
+      title: t('scaleTogetherTitle'),
+      description: t('scaleTogetherDesc')
     },
     {
       icon: Layers,
-      title: "Harvest instantly",
-      description: "See immediate results with real-time crop insights, automated interventions, and data-driven recommendations that boost yields from day one."
+      title: t('harvestInstantlyTitle'),
+      description: t('harvestInstantlyDesc')
     }
   ]
+
+  const additionalInfoBullets = t.raw('additionalInfoBullets')
+  const additionalPerformanceStats = t.raw('additionalPerformanceStats')
 
   return (
     <div className="min-h-screen bg-white">
       <Header />
       
       <main className="pt-16">
-        {/* Hero Section - Based on Reference 1 */}
+        {/* Hero Section */}
         <section className="py-24 bg-gradient-to-br from-[#e6e6e6] to-[#0ea47a]/5">
           <div className="container mx-auto px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -110,31 +113,27 @@ const ProductPage = () => {
                 </div>
                 
                 <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8 leading-tight">
-                  Built for the modern farm
+                  {t('headline')}
                 </h1>
                 
                 <div className="space-y-6 mb-8">
                   <p className="text-xl text-gray-600 leading-relaxed">
-                    Cropion revolutionizes agriculture with AI-powered autonomous rovers that detect weeds, 
-                    monitor crop health, and optimize farming operations. Experience the future of sustainable 
-                    farming with precision agriculture technology that increases yields while reducing costs.
+                    {t('intro')}
                   </p>
                   
                   <p className="text-lg text-gray-600 leading-relaxed">
-                    Our advanced computer vision and machine learning systems work around the clock to 
-                    protect your crops, analyze soil conditions, and provide actionable insights that 
-                    transform traditional farming into smart, data-driven agriculture.
+                    {t('intro2')}
                   </p>
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4">
                   <button className="bg-gradient-to-r from-[#0ea47a] to-[#12d39d] hover:from-[#0a7557] hover:to-[#0ea47a] text-white px-8 py-4 rounded-lg transition-all duration-200 font-medium flex items-center justify-center space-x-2">
                     <Play className="w-5 h-5" />
-                    <span>Watch Demo</span>
+                    <span>{t('watchDemo')}</span>
                   </button>
                   
                   <button className="border-2 border-[#0ea47a] hover:bg-[#0ea47a] text-[#0ea47a] hover:text-white px-8 py-4 rounded-lg transition-all duration-200 font-medium">
-                    Request Quote
+                    {t('requestQuote')}
                   </button>
                 </div>
 
@@ -142,15 +141,15 @@ const ProductPage = () => {
                 <div className="grid grid-cols-3 gap-8 mt-12 pt-8 border-t border-gray-200">
                   <div>
                     <div className="text-3xl font-bold text-[#0ea47a]">40%</div>
-                    <div className="text-sm text-gray-600">Yield Increase</div>
+                    <div className="text-sm text-gray-600">{t('yieldIncreaseStat')}</div>
                   </div>
                   <div>
                     <div className="text-3xl font-bold text-[#0ea47a]">70%</div>
-                    <div className="text-sm text-gray-600">Less Herbicide</div>
+                    <div className="text-sm text-gray-600">{t('lessHerbicideStat')}</div>
                   </div>
                   <div>
                     <div className="text-3xl font-bold text-[#0ea47a]">24/7</div>
-                    <div className="text-sm text-gray-600">Monitoring</div>
+                    <div className="text-sm text-gray-600">{t('monitoringStat')}</div>
                   </div>
                 </div>
               </div>
@@ -226,16 +225,15 @@ const ProductPage = () => {
           </div>
         </section>
 
-        {/* Features Grid Section - Based on Reference 2 */}
+        {/* Features Grid Section */}
         <section className="py-24 bg-white">
           <div className="container mx-auto px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Built for the modern farm
+                {t('featuresTitle')}
               </h2>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                Comprehensive AI-powered farming solutions that transform traditional agriculture 
-                into smart, sustainable, and profitable operations.
+                {t('featuresDesc')}
               </p>
             </div>
 
@@ -257,7 +255,7 @@ const ProductPage = () => {
                     </p>
                     
                     <button className={`${feature.color} hover:underline font-medium flex items-center space-x-2 transition-colors`}>
-                      <span>Learn more</span>
+                      <span>{t('featureLearnMoreBtn')}</span>
                       <ArrowRight className="w-4 h-4" />
                     </button>
                   </div>
@@ -270,21 +268,14 @@ const ProductPage = () => {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
                   <h3 className="text-3xl font-bold text-gray-900 mb-6">
-                    Everything you need to scale your farm
+                    {t('additionalInfoTitle')}
                   </h3>
                   <p className="text-gray-600 leading-relaxed mb-8">
-                    From small family farms to large agricultural enterprises, Cropion&apos;s AI platform 
-                    grows with your operation. Get access to advanced analytics, custom integrations, 
-                    and dedicated agricultural support specialists.
+                    {t('additionalInfoDesc')}
                   </p>
                   
                   <div className="space-y-4">
-                    {[
-                      'Real-time crop health analytics',
-                      'Custom field mapping integration',
-                      '24/7 agricultural support team',
-                      'Enterprise-grade data security'
-                    ].map((item, index) => (
+                    {additionalInfoBullets.map((item: string, index: number) => (
                       <div key={index} className="flex items-center space-x-3">
                         <CheckCircle className="w-5 h-5 text-[#0ea47a]" />
                         <span className="text-gray-700">{item}</span>
@@ -296,7 +287,7 @@ const ProductPage = () => {
                 <div className="relative">
                   <div className="bg-white rounded-2xl p-8 shadow-lg border border-[#0ea47a]/10">
                     <div className="flex items-center justify-between mb-6">
-                      <h4 className="font-semibold text-gray-900">Farm Performance</h4>
+                      <h4 className="font-semibold text-gray-900">{additionalPerformanceStats.farmPerformance}</h4>
                       <div className="flex space-x-1">
                         {[1,2,3,4,5].map((star) => (
                           <Star key={star} className="w-4 h-4 text-[#0ea47a] fill-current" />
@@ -306,19 +297,19 @@ const ProductPage = () => {
                     
                     <div className="space-y-4">
                       <div className="flex justify-between items-center">
-                        <span className="text-sm text-gray-600">Weed Detection Accuracy</span>
+                        <span className="text-sm text-gray-600">{additionalPerformanceStats.weedDetectionAccuracy}</span>
                         <span className="font-medium text-[#0ea47a]">99.5%</span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-sm text-gray-600">System Uptime</span>
+                        <span className="text-sm text-gray-600">{additionalPerformanceStats.systemUptime}</span>
                         <span className="font-medium text-[#0ea47a]">99.9%</span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-sm text-gray-600">Coverage Speed</span>
+                        <span className="text-sm text-gray-600">{additionalPerformanceStats.coverageSpeed}</span>
                         <span className="font-medium text-[#0ea47a]">5 acres/hour</span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-sm text-gray-600">Battery Life</span>
+                        <span className="text-sm text-gray-600">{additionalPerformanceStats.batteryLife}</span>
                         <span className="font-medium text-[#0ea47a]">12+ hours</span>
                       </div>
                     </div>
@@ -329,7 +320,7 @@ const ProductPage = () => {
           </div>
         </section>
 
-        {/* Final CTA Section - Based on Reference 3 */}
+        {/* Final CTA Section */}
         <section className="py-24 bg-gradient-to-r from-[#0ea47a] to-[#12d39d] relative overflow-hidden">
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-10">
@@ -342,7 +333,7 @@ const ProductPage = () => {
           <div className="container mx-auto px-6 lg:px-8 relative">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
-                Built for the modern farm
+                {t('featuresTitle')}
               </h2>
             </div>
 
@@ -372,16 +363,16 @@ const ProductPage = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button className="bg-white text-[#0ea47a] hover:bg-gray-100 px-8 py-4 rounded-lg transition-all duration-200 font-medium flex items-center justify-center space-x-2">
                   <Download className="w-5 h-5" />
-                  <span>Start Free Trial</span>
+                  <span>{t('startFreeTrial')}</span>
                 </button>
                 
                 <button className="border-2 border-white text-white hover:bg-white hover:text-[#0ea47a] px-8 py-4 rounded-lg transition-all duration-200 font-medium">
-                  Schedule Demo
+                  {t('scheduleDemo')}
                 </button>
               </div>
               
               <p className="text-white/80 mt-6">
-                No setup fees • 30-day money-back guarantee • Cancel anytime
+                {t('guarantee')}
               </p>
             </div>
           </div>
@@ -392,10 +383,10 @@ const ProductPage = () => {
           <div className="container mx-auto px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-gray-900 mb-6">
-                Trusted by farmers worldwide
+                {t('testimonialsTitle')}
               </h2>
               <p className="text-xl text-gray-600">
-                See how Cropion is transforming agriculture across the globe
+                {t('testimonialsDesc')}
               </p>
             </div>
 
@@ -428,7 +419,7 @@ const ProductPage = () => {
                   </div>
                   
                   <blockquote className="text-gray-700 mb-6 leading-relaxed">
-                  &quot;{testimonial.quote}&quot;
+                  "{testimonial.quote}"
                   </blockquote>
                   
                   <div>
