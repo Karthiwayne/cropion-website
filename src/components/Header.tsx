@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 import ContactModal from './ContactModal'
+import Link from 'next/link';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -27,10 +28,13 @@ const Header = () => {
         <div className="container mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <div className="flex items-center space-x-3">
-             <img src="/cropion-logo.svg" width={160}/>
-            </div>
             
+
+<Link href="/">
+  <div className="flex items-center space-x-3 cursor-pointer">
+    <img src="/cropion-logo.svg" width={160} alt="Cropion Logo" />
+  </div>
+</Link>
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
               {['Product', 'FAQ'].map((item) => (
